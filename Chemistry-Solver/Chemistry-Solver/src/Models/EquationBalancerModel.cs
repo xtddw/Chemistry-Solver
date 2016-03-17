@@ -2,14 +2,22 @@
 
 namespace BSmith.ChemistrySolver.Models
 {
+    /// <summary>
+    /// The model for the equation balancer.
+    /// </summary>
     public class EquationBalancerModel
     {
-        private ChemicalEquation equation_;
-        public ChemicalEquation Equation { get { return equation_; } set { equation_ = value; } }
+        /// <summary>
+        /// The chemical equation interpreted from user input, and is what's balanced.
+        /// </summary>
+        public ChemicalEquation Equation { get; set; }
 
+        /// <summary>
+        /// Creates a new equation balancer model.
+        /// </summary>
         public EquationBalancerModel()
         {
-            equation_ = new ChemicalEquation();
+            Equation = new ChemicalEquation();
         }
     }
 }

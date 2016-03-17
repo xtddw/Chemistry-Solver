@@ -1,32 +1,47 @@
 ﻿namespace BSmith.ChemistrySolver.Models
 {
+    /// <summary>
+    /// The model for the launcher form in the application.
+    /// </summary>
     public class LauncherModel
     {
-        private Controllers.EquationBalancerController equation_balancer_form_;
-        public Controllers.EquationBalancerController EquationBalancer { get { return equation_balancer_form_; } set { equation_balancer_form_ = value; } }
+        /// <summary>
+        /// The equation balancer controller.
+        /// </summary>
+        public Controllers.EquationBalancerController EquationBalancer { get; set; }
 
-        private Controllers.PeriodicTableController periodic_table_form_;
-        public Controllers.PeriodicTableController PeriodicTable { get { return periodic_table_form_; } set { periodic_table_form_ = value; } }
+        /// <summary>
+        /// The periodic table controller.
+        /// </summary>
+        public Controllers.PeriodicTableController PeriodicTable { get; set; }
 
-        private Controllers.StoichiometryController stoichiometry_form_;
-        public Controllers.StoichiometryController Stoichiometry { get { return stoichiometry_form_; } set { stoichiometry_form_ = value; } }
+        /// <summary>
+        /// The stoichiometry controller.
+        /// </summary>
+        public Controllers.StoichiometryController Stoichiometry { get; set; }
 
-        private Controllers.UnitConversionController unit_converter_form_;
-        public Controllers.UnitConversionController UnitConversion { get { return unit_converter_form_; } set { unit_converter_form_ = value; } }
+        /// <summary>
+        /// The unit conversion controller.
+        /// </summary>
+        public Controllers.UnitConversionController UnitConversion { get; set; }
 
+        /// <summary>
+        /// Creates a new model, and assigns the controllers to the launcher.
+        /// </summary>
+        /// <param name="launcher"></param>
         public LauncherModel(Controllers.LauncherController launcher)
         {
-            equation_balancer_form_ = new Controllers.EquationBalancerController();
-            equation_balancer_form_.Owner = launcher;
+            EquationBalancer = new Controllers.EquationBalancerController();
+            EquationBalancer.Owner = launcher;
 
-            periodic_table_form_ = new Controllers.PeriodicTableController();
-            periodic_table_form_.Owner = launcher;
+            PeriodicTable = new Controllers.PeriodicTableController();
+            PeriodicTable.Owner = launcher;
 
-            stoichiometry_form_ = new Controllers.StoichiometryController();
-            stoichiometry_form_.Owner = launcher;
+            Stoichiometry = new Controllers.StoichiometryController();
+            Stoichiometry.Owner = launcher;
 
-            unit_converter_form_ = new Controllers.UnitConversionController();
-            unit_converter_form_.Owner = launcher;
+            UnitConversion = new Controllers.UnitConversionController();
+            UnitConversion.Owner = launcher;
         }
     }
 }

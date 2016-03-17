@@ -1344,7 +1344,7 @@
             this.tableLayoutPanel56.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel56.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel56.TabIndex = 5;
-            this.tableLayoutPanel56.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel56.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label242
             // 
@@ -1408,7 +1408,7 @@
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel26.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel26.TabIndex = 5;
-            this.tableLayoutPanel26.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel26.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label122
             // 
@@ -1472,7 +1472,7 @@
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel24.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel24.TabIndex = 5;
-            this.tableLayoutPanel24.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel24.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label114
             // 
@@ -1536,7 +1536,7 @@
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel23.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel23.TabIndex = 5;
-            this.tableLayoutPanel23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel23.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label110
             // 
@@ -1601,7 +1601,7 @@
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel22.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel22.TabIndex = 4;
-            this.tableLayoutPanel22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label106
             // 
@@ -1665,7 +1665,7 @@
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel21.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel21.TabIndex = 4;
-            this.tableLayoutPanel21.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel21.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label102
             // 
@@ -1729,7 +1729,7 @@
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel20.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel20.TabIndex = 4;
-            this.tableLayoutPanel20.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel20.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label98
             // 
@@ -1793,7 +1793,7 @@
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel19.TabIndex = 4;
-            this.tableLayoutPanel19.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel19.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label94
             // 
@@ -1857,7 +1857,7 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel18.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel18.TabIndex = 4;
-            this.tableLayoutPanel18.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel18.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label90
             // 
@@ -1921,7 +1921,7 @@
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel17.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel17.TabIndex = 4;
-            this.tableLayoutPanel17.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel17.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label86
             // 
@@ -1985,7 +1985,7 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel16.TabIndex = 4;
-            this.tableLayoutPanel16.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel16.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label82
             // 
@@ -2049,7 +2049,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel15.TabIndex = 4;
-            this.tableLayoutPanel15.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel15.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label78
             // 
@@ -2113,7 +2113,7 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel13.TabIndex = 4;
-            this.tableLayoutPanel13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label70
             // 
@@ -2177,7 +2177,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel12.TabIndex = 4;
-            this.tableLayoutPanel12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label66
             // 
@@ -2241,7 +2241,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel11.TabIndex = 4;
-            this.tableLayoutPanel11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label62
             // 
@@ -2305,7 +2305,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel10.TabIndex = 4;
-            this.tableLayoutPanel10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label58
             // 
@@ -2369,7 +2369,7 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel9.TabIndex = 4;
-            this.tableLayoutPanel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label54
             // 
@@ -2446,8 +2446,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel3.TabIndex = 2;
-            this.tableLayoutPanel3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
-            this.tableLayoutPanel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label5
             // 
@@ -2470,7 +2469,6 @@
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "3";
-            this.label6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label7
             // 
@@ -2481,7 +2479,6 @@
             this.label7.Size = new System.Drawing.Size(17, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "Li";
-            this.label7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label8
             // 
@@ -2493,7 +2490,6 @@
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 4;
             this.label8.Text = "Lithium";
-            this.label8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -2514,7 +2510,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel2.TabIndex = 1;
-            this.tableLayoutPanel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
+            this.tableLayoutPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label4
             // 
@@ -2526,7 +2522,6 @@
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "1.008";
-            this.label4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label1
             // 
@@ -2538,7 +2533,6 @@
             this.label1.Size = new System.Drawing.Size(13, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "1";
-            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label2
             // 
@@ -2549,7 +2543,6 @@
             this.label2.Size = new System.Drawing.Size(16, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "H";
-            this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label3
             // 
@@ -2561,7 +2554,6 @@
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Hydrogen";
-            this.label3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -2583,7 +2575,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel4.TabIndex = 2;
-            this.tableLayoutPanel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label9
             // 
@@ -2647,8 +2638,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel5.TabIndex = 2;
-            this.tableLayoutPanel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
-            this.tableLayoutPanel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label13
             // 
@@ -2660,7 +2650,6 @@
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 5;
             this.label13.Text = "9.012";
-            this.label13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label14
             // 
@@ -2672,7 +2661,6 @@
             this.label14.Size = new System.Drawing.Size(13, 13);
             this.label14.TabIndex = 2;
             this.label14.Text = "4";
-            this.label14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label15
             // 
@@ -2683,7 +2671,6 @@
             this.label15.Size = new System.Drawing.Size(22, 13);
             this.label15.TabIndex = 3;
             this.label15.Text = "Be";
-            this.label15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // label16
             // 
@@ -2695,7 +2682,6 @@
             this.label16.Size = new System.Drawing.Size(40, 13);
             this.label16.TabIndex = 4;
             this.label16.Text = "Beryllium";
-            this.label16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.element_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -2716,7 +2702,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel6.TabIndex = 2;
-            this.tableLayoutPanel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label17
             // 
@@ -3092,7 +3078,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel7.TabIndex = 3;
-            this.tableLayoutPanel7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label46
             // 
@@ -3157,7 +3143,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel8.TabIndex = 4;
-            this.tableLayoutPanel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label50
             // 
@@ -3221,7 +3207,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel14.TabIndex = 4;
-            this.tableLayoutPanel14.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel14.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label74
             // 
@@ -3285,7 +3271,7 @@
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel25.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel25.TabIndex = 27;
-            this.tableLayoutPanel25.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel25.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label118
             // 
@@ -3349,7 +3335,7 @@
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel27.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel27.TabIndex = 5;
-            this.tableLayoutPanel27.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel27.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label126
             // 
@@ -3413,7 +3399,7 @@
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel29.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel29.TabIndex = 29;
-            this.tableLayoutPanel29.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel29.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label134
             // 
@@ -3477,7 +3463,7 @@
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel30.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel30.TabIndex = 30;
-            this.tableLayoutPanel30.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel30.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label138
             // 
@@ -3541,7 +3527,7 @@
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel31.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel31.TabIndex = 31;
-            this.tableLayoutPanel31.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel31.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label142
             // 
@@ -3605,7 +3591,7 @@
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel32.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel32.TabIndex = 32;
-            this.tableLayoutPanel32.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel32.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label146
             // 
@@ -3669,7 +3655,7 @@
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel33.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel33.TabIndex = 33;
-            this.tableLayoutPanel33.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel33.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label150
             // 
@@ -3733,7 +3719,7 @@
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel34.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel34.TabIndex = 34;
-            this.tableLayoutPanel34.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel34.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label154
             // 
@@ -3797,7 +3783,7 @@
             this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel35.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel35.TabIndex = 35;
-            this.tableLayoutPanel35.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel35.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label158
             // 
@@ -3861,7 +3847,7 @@
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel36.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel36.TabIndex = 36;
-            this.tableLayoutPanel36.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel36.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label162
             // 
@@ -3925,7 +3911,7 @@
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel37.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel37.TabIndex = 37;
-            this.tableLayoutPanel37.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel37.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label166
             // 
@@ -3989,7 +3975,7 @@
             this.tableLayoutPanel38.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel38.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel38.TabIndex = 38;
-            this.tableLayoutPanel38.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel38.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label170
             // 
@@ -4053,7 +4039,7 @@
             this.tableLayoutPanel39.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel39.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel39.TabIndex = 39;
-            this.tableLayoutPanel39.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel39.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label174
             // 
@@ -4117,7 +4103,7 @@
             this.tableLayoutPanel40.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel40.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel40.TabIndex = 40;
-            this.tableLayoutPanel40.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel40.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label178
             // 
@@ -4181,7 +4167,7 @@
             this.tableLayoutPanel41.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel41.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel41.TabIndex = 41;
-            this.tableLayoutPanel41.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel41.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label182
             // 
@@ -4245,7 +4231,7 @@
             this.tableLayoutPanel42.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel42.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel42.TabIndex = 42;
-            this.tableLayoutPanel42.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel42.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label186
             // 
@@ -4309,7 +4295,7 @@
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel43.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel43.TabIndex = 43;
-            this.tableLayoutPanel43.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel43.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label190
             // 
@@ -4373,7 +4359,7 @@
             this.tableLayoutPanel45.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel45.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel45.TabIndex = 45;
-            this.tableLayoutPanel45.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel45.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label198
             // 
@@ -4437,7 +4423,7 @@
             this.tableLayoutPanel44.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel44.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel44.TabIndex = 44;
-            this.tableLayoutPanel44.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel44.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label194
             // 
@@ -4501,7 +4487,7 @@
             this.tableLayoutPanel46.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel46.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel46.TabIndex = 46;
-            this.tableLayoutPanel46.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel46.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label202
             // 
@@ -4565,7 +4551,7 @@
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel28.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel28.TabIndex = 28;
-            this.tableLayoutPanel28.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel28.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label130
             // 
@@ -4629,7 +4615,7 @@
             this.tableLayoutPanel47.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel47.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel47.TabIndex = 47;
-            this.tableLayoutPanel47.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel47.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label206
             // 
@@ -4693,7 +4679,7 @@
             this.tableLayoutPanel48.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel48.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel48.TabIndex = 48;
-            this.tableLayoutPanel48.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel48.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label210
             // 
@@ -4757,7 +4743,7 @@
             this.tableLayoutPanel49.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel49.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel49.TabIndex = 49;
-            this.tableLayoutPanel49.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel49.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label214
             // 
@@ -4821,7 +4807,7 @@
             this.tableLayoutPanel50.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel50.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel50.TabIndex = 50;
-            this.tableLayoutPanel50.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel50.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label218
             // 
@@ -4885,7 +4871,7 @@
             this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel51.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel51.TabIndex = 51;
-            this.tableLayoutPanel51.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel51.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label222
             // 
@@ -4949,7 +4935,7 @@
             this.tableLayoutPanel52.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel52.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel52.TabIndex = 52;
-            this.tableLayoutPanel52.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel52.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label226
             // 
@@ -5013,7 +4999,7 @@
             this.tableLayoutPanel53.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel53.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel53.TabIndex = 53;
-            this.tableLayoutPanel53.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel53.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label230
             // 
@@ -5077,7 +5063,7 @@
             this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel54.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel54.TabIndex = 54;
-            this.tableLayoutPanel54.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel54.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label234
             // 
@@ -5141,7 +5127,7 @@
             this.tableLayoutPanel55.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel55.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel55.TabIndex = 55;
-            this.tableLayoutPanel55.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel55.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label238
             // 
@@ -5205,7 +5191,7 @@
             this.tableLayoutPanel57.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel57.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel57.TabIndex = 56;
-            this.tableLayoutPanel57.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel57.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label246
             // 
@@ -5269,7 +5255,7 @@
             this.tableLayoutPanel70.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel70.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel70.TabIndex = 69;
-            this.tableLayoutPanel70.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel70.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label298
             // 
@@ -5333,7 +5319,7 @@
             this.tableLayoutPanel71.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel71.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel71.TabIndex = 70;
-            this.tableLayoutPanel71.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel71.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label302
             // 
@@ -5397,7 +5383,7 @@
             this.tableLayoutPanel72.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel72.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel72.TabIndex = 71;
-            this.tableLayoutPanel72.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel72.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label306
             // 
@@ -5461,7 +5447,7 @@
             this.tableLayoutPanel69.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel69.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel69.TabIndex = 68;
-            this.tableLayoutPanel69.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel69.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label294
             // 
@@ -5525,7 +5511,7 @@
             this.tableLayoutPanel68.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel68.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel68.TabIndex = 67;
-            this.tableLayoutPanel68.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel68.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label290
             // 
@@ -5589,7 +5575,7 @@
             this.tableLayoutPanel67.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel67.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel67.TabIndex = 66;
-            this.tableLayoutPanel67.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel67.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label286
             // 
@@ -5653,7 +5639,7 @@
             this.tableLayoutPanel66.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel66.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel66.TabIndex = 65;
-            this.tableLayoutPanel66.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel66.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label282
             // 
@@ -5717,7 +5703,7 @@
             this.tableLayoutPanel65.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel65.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel65.TabIndex = 64;
-            this.tableLayoutPanel65.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel65.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label278
             // 
@@ -5781,7 +5767,7 @@
             this.tableLayoutPanel64.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel64.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel64.TabIndex = 63;
-            this.tableLayoutPanel64.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel64.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label274
             // 
@@ -5845,7 +5831,7 @@
             this.tableLayoutPanel63.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel63.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel63.TabIndex = 62;
-            this.tableLayoutPanel63.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel63.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label270
             // 
@@ -5909,7 +5895,7 @@
             this.tableLayoutPanel62.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel62.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel62.TabIndex = 61;
-            this.tableLayoutPanel62.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel62.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label266
             // 
@@ -5973,7 +5959,7 @@
             this.tableLayoutPanel61.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel61.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel61.TabIndex = 60;
-            this.tableLayoutPanel61.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel61.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label262
             // 
@@ -6037,7 +6023,7 @@
             this.tableLayoutPanel60.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel60.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel60.TabIndex = 59;
-            this.tableLayoutPanel60.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel60.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label258
             // 
@@ -6101,7 +6087,7 @@
             this.tableLayoutPanel59.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel59.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel59.TabIndex = 58;
-            this.tableLayoutPanel59.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel59.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label254
             // 
@@ -6165,7 +6151,7 @@
             this.tableLayoutPanel58.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel58.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel58.TabIndex = 57;
-            this.tableLayoutPanel58.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel58.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label250
             // 
@@ -6229,7 +6215,7 @@
             this.tableLayoutPanel74.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel74.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel74.TabIndex = 73;
-            this.tableLayoutPanel74.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel74.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label314
             // 
@@ -6293,7 +6279,7 @@
             this.tableLayoutPanel75.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel75.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel75.TabIndex = 74;
-            this.tableLayoutPanel75.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel75.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label318
             // 
@@ -6357,7 +6343,7 @@
             this.tableLayoutPanel76.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel76.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel76.TabIndex = 75;
-            this.tableLayoutPanel76.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel76.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label322
             // 
@@ -6421,7 +6407,7 @@
             this.tableLayoutPanel77.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel77.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel77.TabIndex = 76;
-            this.tableLayoutPanel77.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel77.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label326
             // 
@@ -6485,7 +6471,7 @@
             this.tableLayoutPanel78.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel78.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel78.TabIndex = 77;
-            this.tableLayoutPanel78.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel78.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label330
             // 
@@ -6549,7 +6535,7 @@
             this.tableLayoutPanel79.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel79.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel79.TabIndex = 78;
-            this.tableLayoutPanel79.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel79.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label334
             // 
@@ -6613,7 +6599,7 @@
             this.tableLayoutPanel80.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel80.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel80.TabIndex = 79;
-            this.tableLayoutPanel80.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel80.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label338
             // 
@@ -6677,7 +6663,7 @@
             this.tableLayoutPanel81.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel81.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel81.TabIndex = 80;
-            this.tableLayoutPanel81.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel81.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label342
             // 
@@ -6741,7 +6727,7 @@
             this.tableLayoutPanel82.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel82.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel82.TabIndex = 81;
-            this.tableLayoutPanel82.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel82.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label346
             // 
@@ -6805,7 +6791,7 @@
             this.tableLayoutPanel83.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel83.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel83.TabIndex = 82;
-            this.tableLayoutPanel83.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel83.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label350
             // 
@@ -6869,7 +6855,7 @@
             this.tableLayoutPanel85.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel85.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel85.TabIndex = 84;
-            this.tableLayoutPanel85.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel85.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label358
             // 
@@ -6933,7 +6919,7 @@
             this.tableLayoutPanel86.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel86.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel86.TabIndex = 85;
-            this.tableLayoutPanel86.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel86.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label362
             // 
@@ -6997,7 +6983,7 @@
             this.tableLayoutPanel87.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel87.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel87.TabIndex = 86;
-            this.tableLayoutPanel87.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel87.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label366
             // 
@@ -7061,7 +7047,7 @@
             this.tableLayoutPanel88.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel88.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel88.TabIndex = 87;
-            this.tableLayoutPanel88.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel88.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label370
             // 
@@ -7125,7 +7111,7 @@
             this.tableLayoutPanel89.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel89.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel89.TabIndex = 88;
-            this.tableLayoutPanel89.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel89.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label374
             // 
@@ -7189,7 +7175,7 @@
             this.tableLayoutPanel90.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel90.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel90.TabIndex = 89;
-            this.tableLayoutPanel90.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel90.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label378
             // 
@@ -7253,7 +7239,7 @@
             this.tableLayoutPanel91.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel91.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel91.TabIndex = 90;
-            this.tableLayoutPanel91.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel91.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label382
             // 
@@ -7317,7 +7303,7 @@
             this.tableLayoutPanel92.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel92.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel92.TabIndex = 91;
-            this.tableLayoutPanel92.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel92.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label386
             // 
@@ -7381,7 +7367,7 @@
             this.tableLayoutPanel93.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel93.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel93.TabIndex = 92;
-            this.tableLayoutPanel93.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel93.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label390
             // 
@@ -7445,7 +7431,7 @@
             this.tableLayoutPanel94.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel94.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel94.TabIndex = 93;
-            this.tableLayoutPanel94.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel94.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label394
             // 
@@ -7509,7 +7495,7 @@
             this.tableLayoutPanel95.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel95.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel95.TabIndex = 94;
-            this.tableLayoutPanel95.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel95.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label398
             // 
@@ -7573,7 +7559,7 @@
             this.tableLayoutPanel96.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel96.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel96.TabIndex = 95;
-            this.tableLayoutPanel96.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel96.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label402
             // 
@@ -7637,7 +7623,7 @@
             this.tableLayoutPanel97.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel97.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel97.TabIndex = 96;
-            this.tableLayoutPanel97.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel97.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label406
             // 
@@ -7701,7 +7687,7 @@
             this.tableLayoutPanel98.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel98.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel98.TabIndex = 97;
-            this.tableLayoutPanel98.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel98.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label410
             // 
@@ -7765,7 +7751,7 @@
             this.tableLayoutPanel99.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel99.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel99.TabIndex = 98;
-            this.tableLayoutPanel99.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel99.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label414
             // 
@@ -7829,7 +7815,7 @@
             this.tableLayoutPanel100.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel100.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel100.TabIndex = 99;
-            this.tableLayoutPanel100.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel100.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label418
             // 
@@ -7893,7 +7879,7 @@
             this.tableLayoutPanel101.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel101.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel101.TabIndex = 100;
-            this.tableLayoutPanel101.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel101.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label422
             // 
@@ -7957,7 +7943,7 @@
             this.tableLayoutPanel102.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel102.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel102.TabIndex = 101;
-            this.tableLayoutPanel102.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel102.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label426
             // 
@@ -8021,7 +8007,7 @@
             this.tableLayoutPanel103.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel103.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel103.TabIndex = 102;
-            this.tableLayoutPanel103.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel103.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label430
             // 
@@ -8085,7 +8071,7 @@
             this.tableLayoutPanel104.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel104.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel104.TabIndex = 103;
-            this.tableLayoutPanel104.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel104.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label434
             // 
@@ -8149,7 +8135,7 @@
             this.tableLayoutPanel105.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel105.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel105.TabIndex = 104;
-            this.tableLayoutPanel105.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel105.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label438
             // 
@@ -8213,7 +8199,7 @@
             this.tableLayoutPanel73.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel73.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel73.TabIndex = 72;
-            this.tableLayoutPanel73.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel73.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label310
             // 
@@ -8277,7 +8263,7 @@
             this.tableLayoutPanel106.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel106.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel106.TabIndex = 105;
-            this.tableLayoutPanel106.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel106.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label442
             // 
@@ -8341,7 +8327,7 @@
             this.tableLayoutPanel107.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel107.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel107.TabIndex = 106;
-            this.tableLayoutPanel107.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel107.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label446
             // 
@@ -8405,7 +8391,7 @@
             this.tableLayoutPanel108.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel108.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel108.TabIndex = 107;
-            this.tableLayoutPanel108.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel108.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label450
             // 
@@ -8469,7 +8455,7 @@
             this.tableLayoutPanel109.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel109.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel109.TabIndex = 108;
-            this.tableLayoutPanel109.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel109.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label454
             // 
@@ -8533,7 +8519,7 @@
             this.tableLayoutPanel110.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel110.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel110.TabIndex = 109;
-            this.tableLayoutPanel110.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel110.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label458
             // 
@@ -8597,7 +8583,7 @@
             this.tableLayoutPanel111.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel111.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel111.TabIndex = 110;
-            this.tableLayoutPanel111.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel111.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label462
             // 
@@ -8661,7 +8647,7 @@
             this.tableLayoutPanel112.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel112.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel112.TabIndex = 111;
-            this.tableLayoutPanel112.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel112.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label466
             // 
@@ -8725,7 +8711,7 @@
             this.tableLayoutPanel113.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel113.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel113.TabIndex = 112;
-            this.tableLayoutPanel113.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel113.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label470
             // 
@@ -8789,7 +8775,7 @@
             this.tableLayoutPanel114.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel114.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel114.TabIndex = 113;
-            this.tableLayoutPanel114.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel114.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label474
             // 
@@ -8853,7 +8839,7 @@
             this.tableLayoutPanel115.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel115.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel115.TabIndex = 114;
-            this.tableLayoutPanel115.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel115.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label478
             // 
@@ -8917,7 +8903,7 @@
             this.tableLayoutPanel116.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel116.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel116.TabIndex = 115;
-            this.tableLayoutPanel116.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel116.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label482
             // 
@@ -8981,7 +8967,7 @@
             this.tableLayoutPanel84.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel84.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel84.TabIndex = 83;
-            this.tableLayoutPanel84.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel84.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label354
             // 
@@ -9045,7 +9031,7 @@
             this.tableLayoutPanel117.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel117.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel117.TabIndex = 116;
-            this.tableLayoutPanel117.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel117.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label486
             // 
@@ -9109,7 +9095,7 @@
             this.tableLayoutPanel118.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel118.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel118.TabIndex = 117;
-            this.tableLayoutPanel118.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel118.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label490
             // 
@@ -9173,7 +9159,7 @@
             this.tableLayoutPanel119.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel119.Size = new System.Drawing.Size(52, 52);
             this.tableLayoutPanel119.TabIndex = 118;
-            this.tableLayoutPanel119.MouseMove += new System.Windows.Forms.MouseEventHandler(this.element_MouseOver);
+            this.tableLayoutPanel119.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ElementMouseOver);
             // 
             // label494
             // 
@@ -9301,7 +9287,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(738, 38);
+            this.MinimumSize = new System.Drawing.Size(738, 39);
             this.Name = "PeriodicTableController";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Periodic Table";

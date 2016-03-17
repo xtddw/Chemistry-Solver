@@ -87,6 +87,11 @@
     <Compile Include="src\Controllers\UnitConversionController.Designer.cs">
       <DependentUpon>UnitConversionController.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Interfaces\IEquationBalancer.cs" />
+    <Compile Include="src\Interfaces\IEquationBalancerHelper.cs" />
+    <Compile Include="src\Interfaces\ILauncher.cs" />
+    <Compile Include="src\Interfaces\IPeriodicTable.cs" />
+    <Compile Include="src\Interfaces\IStoichiometry.cs" />
     <Compile Include="src\Math\Fraction.cs" />
     <Compile Include="src\Math\Functions.cs" />
     <Compile Include="src\Math\Matrix.cs" />
