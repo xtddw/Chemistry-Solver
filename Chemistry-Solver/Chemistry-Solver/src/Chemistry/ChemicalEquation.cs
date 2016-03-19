@@ -1,4 +1,5 @@
 ﻿using BSmith.Math;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -9,19 +10,23 @@ namespace BSmith.Chemistry
     /// </summary>
     public class ChemicalEquation
     {
-        private List<ParticleQuantityPair<Molecule, int>> reactants_;
-        public List<ParticleQuantityPair<Molecule, int>> Reactants { get { return reactants_; } set { reactants_ = value; } }
+        /// <summary>
+        /// The reactants found in the <see cref="ChemicalEquation"/>.
+        /// </summary>
+        public List<Tuple<Molecule, int>> Reactants { get; set; }
 
-        private List<ParticleQuantityPair<Molecule, int>> products_;
-        public List<ParticleQuantityPair<Molecule, int>> Products { get { return products_; } set { products_ = value; } }
+        /// <summary>
+        /// The products found in the <see cref="ChemicalEquation"/>.
+        /// </summary>
+        public List<Tuple<Molecule, int>> Products { get; set; }
 
         /// <summary>
         /// Constructs an empty Chemical Equation.
         /// </summary>
         public ChemicalEquation()
         {
-            reactants_ = new List<ParticleQuantityPair<Molecule, int>>();
-            products_ = new List<ParticleQuantityPair<Molecule, int>>();
+            Reactants = new List<Tuple<Molecule, int>>();
+            Products = new List<Tuple<Molecule, int>>();
         }
 
         /// <summary>
@@ -30,11 +35,11 @@ namespace BSmith.Chemistry
         /// <param name="equation">The equation to pull values from.</param>
         public ChemicalEquation(ChemicalEquation equation)
         {
-            reactants_ = new List<ParticleQuantityPair<Molecule, int>>();
-            reactants_.AddRange(equation.Reactants);
+            Reactants = new List<Tuple<Molecule, int>>();
+            Reactants.AddRange(equation.Reactants);
 
-            products_ = new List<ParticleQuantityPair<Molecule, int>>();
-            products_.AddRange(equation.Products);
+            Products = new List<Tuple<Molecule, int>>();
+            Products.AddRange(equation.Products);
         }
 
         /// <summary>
@@ -42,27 +47,29 @@ namespace BSmith.Chemistry
         /// </summary>
         /// <param name="element_pairs">A list of molecules.</param>
         /// <returns>The unique elements from the supplied molecules.</returns>
-        private List<ParticleQuantityPair<Element, int>> GetUniqueElements(List<ParticleQuantityPair<Molecule, int>> element_pairs)
+        private List<Tuple<Element, int>> GetUniqueElements(List<Tuple<Molecule, int>> element_pairs)
         {
-            var unique_elements = new List<ParticleQuantityPair<Element, int>>();
+            var unique_elements = new List<Tuple<Element, int>>();
 
             for (var molecule_index = 0; molecule_index < element_pairs.Count; ++molecule_index)
             {
-                for (var element_index = 0; element_index < element_pairs[molecule_index].Particle.Elements.Count; ++element_index)
+                for (var element_index = 0; element_index < element_pairs[molecule_index].Item1.Elements.Count; ++element_index)
                 {
-                    var match = unique_elements.Find(element => element.Particle.Equals(element_pairs[molecule_index].Particle.Elements[element_index].Particle));
+                    var match = unique_elements.Find(element => element.Item1.Equals(element_pairs[molecule_index].Item1.Elements[element_index].Item1));
 
                     if (match == null)
                     {
-                        var element = new ParticleQuantityPair<Element, int>(
-                            element_pairs[molecule_index].Particle.Elements[element_index].Particle,
-                            element_pairs[molecule_index].Particle.Elements[element_index].Quantity * element_pairs[molecule_index].Quantity);
+                        var element = Tuple.Create(
+                            element_pairs[molecule_index].Item1.Elements[element_index].Item1,
+                            element_pairs[molecule_index].Item1.Elements[element_index].Item2 * element_pairs[molecule_index].Item2);
 
                         unique_elements.Add(element);
                     }
                     else
                     {
-                        match.Quantity += (element_pairs[molecule_index].Particle.Elements[element_index].Quantity * element_pairs[molecule_index].Quantity);
+                        match = Tuple.Create(
+                        match.Item1, 
+                        match.Item2 + (element_pairs[molecule_index].Item1.Elements[element_index].Item2 * element_pairs[molecule_index].Item2));
                     }
                 }
             }
@@ -88,8 +95,8 @@ namespace BSmith.Chemistry
                 {
                     for (var element_index = 0; element_index < product_elements.Count; ++element_index)
                     {
-                        if (element_pair.Particle.Equals(product_elements[element_index].Particle)
-                            && element_pair.Quantity == product_elements[element_index].Quantity)
+                        if (element_pair.Item1.Equals(product_elements[element_index].Item1)
+                            && element_pair.Item2 == product_elements[element_index].Item2)
                         {
                             ++equality_count;
                         }
@@ -102,7 +109,7 @@ namespace BSmith.Chemistry
 
       
         /// <summary>
-        /// Balances a ChemicalEquation.
+        /// Balances the <see cref="ChemicalEquation"/>.
         /// </summary>
         public void Balance()
         {
@@ -111,7 +118,7 @@ namespace BSmith.Chemistry
                 && !IsBalanced())
             {
                 var elements = GetUniqueElements(Reactants);
-                var molecules = new List<ParticleQuantityPair<Molecule, int>>();
+                var molecules = new List<Tuple<Molecule, int>>();
                 molecules.AddRange(Reactants);
                 molecules.AddRange(Products);
 
@@ -122,12 +129,12 @@ namespace BSmith.Chemistry
                 {
                     for (var col_index = 0; col_index < matrix.Data.GetLength(1); ++col_index)
                     {
-                        var element_match = molecules[col_index].Particle.Elements.Find(element_pair => element_pair.Particle.Equals(elements[row_index].Particle));
+                        var element_match = molecules[col_index].Item1.Elements.Find(element_pair => element_pair.Item1.Equals(elements[row_index].Item1));
 
                         if (element_match != null)
                         {
                             var product_scalar = (col_index >= Reactants.Count) ? -1 : 1;
-                            var element_coefficient = new Fraction(element_match.Quantity);
+                            var element_coefficient = new Fraction(element_match.Item2);
 
                             element_coefficient = Fraction.Multiply(element_coefficient, product_scalar);
                             matrix.Data[row_index, col_index] = Fraction.Add(matrix.Data[row_index, col_index], element_coefficient);
@@ -170,11 +177,13 @@ namespace BSmith.Chemistry
 
                     if (i < Reactants.Count)
                     {
-                        Reactants[i].Quantity = (int)molecule_coefficients[i].Approximate();
+                        Reactants[i] = Tuple.Create(Reactants[i].Item1, (int)molecule_coefficients[i].Approximate());
                     }
                     else
                     {
-                        Products[System.Math.Abs(Reactants.Count - i)].Quantity = (int)molecule_coefficients[i].Approximate();
+                        Products[System.Math.Abs(Reactants.Count - i)] = Tuple.Create(
+                        Products[System.Math.Abs(Reactants.Count - i)].Item1, 
+                        (int)molecule_coefficients[i].Approximate());
                     }
                 }
             }
@@ -188,7 +197,7 @@ namespace BSmith.Chemistry
         public static Molecule CreateMolecule(string input)
         {
             var ptable = new PeriodicTable();
-            ptable.LoadData("..\\..\\data\\ElementData.csv");
+            ptable.LoadDataFromCSV("..\\..\\data\\ElementData.csv");
 
             var molecule = new Molecule();
             var elements = Regex.Matches(input, @"[A-Z]{1}[a-z]{0,2}");
@@ -200,7 +209,7 @@ namespace BSmith.Chemistry
                 var element_count = 0;
                 int.TryParse(subscripts[i].Value, out element_count);
 
-                molecule.Elements.Add(new ParticleQuantityPair<Element, int>(element, element_count));
+                molecule.Elements.Add(new System.Tuple<Element, int>(element, element_count));
             }
 
             return molecule;
@@ -224,11 +233,11 @@ namespace BSmith.Chemistry
             {
                 if (arrow_separator.Count == 0) // Only reactants present
                 {
-                    var reactants = new List<ParticleQuantityPair<Molecule, int>>();
+                    var reactants = new List<Tuple<Molecule, int>>();
 
                     foreach (Match molecule in molecules)
                     {
-                        reactants.Add(new ParticleQuantityPair<Molecule, int>(CreateMolecule(molecule.Value), 1));
+                        reactants.Add(new Tuple<Molecule, int>(CreateMolecule(molecule.Value), 1));
                     }
 
                     chemical_equation.Reactants = reactants;
@@ -236,19 +245,19 @@ namespace BSmith.Chemistry
                 else if (arrow_separator.Count == 1) // Reactants and produts present
                 {
 
-                    var reactants = new List<ParticleQuantityPair<Molecule, int>>();
-                    var products = new List<ParticleQuantityPair<Molecule, int>>();
+                    var reactants = new List<Tuple<Molecule, int>>();
+                    var products = new List<Tuple<Molecule, int>>();
 
                     for (var i = 0; i < molecules.Count; ++i)
                     {
                         // Reactants
                         if (molecules[i].Index < arrow_separator[0].Index)
                         {
-                            reactants.Add(new ParticleQuantityPair<Molecule, int>(CreateMolecule(molecules[i].Value), 1));
+                            reactants.Add(Tuple.Create(CreateMolecule(molecules[i].Value), 1));
                         }
                         else // Products
                         {
-                            products.Add(new ParticleQuantityPair<Molecule, int>(CreateMolecule(molecules[i].Value), 1));
+                            products.Add(Tuple.Create(CreateMolecule(molecules[i].Value), 1));
                         }
                     }
 
@@ -268,21 +277,21 @@ namespace BSmith.Chemistry
         {
             string output = string.Empty;
 
-            for (int reactants_index = 0; reactants_index < reactants_.Count; ++reactants_index)
+            for (int reactants_index = 0; reactants_index < Reactants.Count; ++reactants_index)
             {
-                output += reactants_[reactants_index].Quantity + reactants_[reactants_index].Particle.ToString();
-                output += (reactants_index < reactants_.Count - 1) ? " + " : string.Empty;
+                output += Reactants[reactants_index].Item2 + Reactants[reactants_index].Item1.ToString();
+                output += (reactants_index < Reactants.Count - 1) ? " + " : string.Empty;
             }
 
-            if (products_.Count != 0)
+            if (Products.Count != 0)
             {
                 output += " --> ";
             }
 
-            for (int products_index = 0; products_index < products_.Count; ++products_index)
+            for (int products_index = 0; products_index < Products.Count; ++products_index)
             {
-                output += products_[products_index].Quantity + products_[products_index].Particle.ToString();
-                output += (products_index < products_.Count - 1) ? " + " : string.Empty;
+                output += Products[products_index].Item2 + Products[products_index].Item1.ToString();
+                output += (products_index < Products.Count - 1) ? " + " : string.Empty;
             }
 
             return output;

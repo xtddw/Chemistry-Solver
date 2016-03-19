@@ -104,11 +104,11 @@ namespace BSmith.ChemistrySolver.Controllers
         /// being indicated by an increased subscript in that element.
         /// </summary>
         /// <param name="molecules"></param>
-        public void CondenseMolecules(List<ParticleQuantityPair<Molecule, int>> molecules)
+        public void CondenseMolecules(List<Tuple<Molecule, int>> molecules)
         {
             for (var i = 0; i < molecules.Count; ++i)
             {
-                var molecule = molecules[i].Particle.ToString();
+                var molecule = molecules[i].Item1.ToString();
                 var elements = Regex.Matches(molecule, @"[A-Z]{1}[a-z]{0,2}");
                 var subscripts = Regex.Matches(molecule, @"\b\d{1,}\b");
                 var condensedFormat = "1";
@@ -132,7 +132,7 @@ namespace BSmith.ChemistrySolver.Controllers
 
                 }
 
-                molecules[i].Particle = ChemicalEquation.CreateMolecule(condensedFormat);
+                molecules[i] = Tuple.Create(ChemicalEquation.CreateMolecule(condensedFormat), molecules[i].Item2);
             }
         }
 
@@ -177,14 +177,14 @@ namespace BSmith.ChemistrySolver.Controllers
         /// Formats a text associated with a molecule so it can be displayed properly in the equation balancer output.
         /// </summary>
         /// <param name="molecule">The molecule to format.</param>
-        public void SetMoleculeTextFormat(ParticleQuantityPair<Molecule, int> molecule)
+        public void SetMoleculeTextFormat(Tuple<Molecule, int> molecule)
         {
-            this.SetCoefficientTextFormat(molecule.Quantity.ToString());
+            this.SetCoefficientTextFormat(molecule.Item2.ToString());
 
-            for (var i = 0; i < molecule.Particle.Elements.Count; ++i)
+            for (var i = 0; i < molecule.Item1.Elements.Count; ++i)
             {
-                SetDefaultTextFormat(molecule.Particle.Elements[i].Particle.Symbol);
-                SetSubscriptTextFormat(molecule.Particle.Elements[i].Quantity.ToString());
+                SetDefaultTextFormat(molecule.Item1.Elements[i].Item1.Symbol);
+                SetSubscriptTextFormat(molecule.Item1.Elements[i].Item2.ToString());
             }
         }
 

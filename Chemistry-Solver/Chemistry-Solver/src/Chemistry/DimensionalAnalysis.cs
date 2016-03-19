@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace BSmith.Chemistry
 {
@@ -7,8 +8,10 @@ namespace BSmith.Chemistry
     /// </summary>
     public class DimensionalAnalysis
     {
-        private List<Ratio> ratios_;
-        public List<Ratio> Ratios { get { return ratios_; } private set { ratios_ = value; } }
+        /// <summary>
+        /// The ratio's used when performing dimensional analysis.
+        /// </summary>
+        public List<Ratio> Ratios { get; private set; }
 
         /// <summary>
         /// Constructs an empty Dimensional Analysis object.
@@ -25,7 +28,7 @@ namespace BSmith.Chemistry
         /// <param name="denominator">The denominator of the ratio.</param>
         public void GenerateRatio(Value numerator, Value denominator)
         {
-            ratios_.Add(new Ratio(numerator, denominator));
+            Ratios.Add(new Ratio(numerator, denominator));
         }
 
         /// <summary>
@@ -36,33 +39,33 @@ namespace BSmith.Chemistry
         {
             Value result = new Value();
 
-            for (int numerator_index = 0; numerator_index < ratios_.Count; ++numerator_index)
+            for (int numerator_index = 0; numerator_index < Ratios.Count; ++numerator_index)
             {
-                for (int denominator_index = 0; denominator_index < ratios_.Count; ++denominator_index)
+                for (int denominator_index = 0; denominator_index < Ratios.Count; ++denominator_index)
                 {
-                    if (ratios_[denominator_index].Denominator.Units.Equals(ratios_[numerator_index].Numerator.Units)
-                        && ratios_[denominator_index].Denominator.Substance.Equals(ratios_[numerator_index].Numerator.Substance)
-                        && !ratios_[numerator_index].Numerator.Units.Equals(string.Empty)
-                        && !ratios_[numerator_index].Numerator.Substance.Equals(new Molecule()))
+                    if (Ratios[denominator_index].Denominator.Units.Equals(Ratios[numerator_index].Numerator.Units)
+                        && Ratios[denominator_index].Denominator.Substance.Equals(Ratios[numerator_index].Numerator.Substance)
+                        && !Ratios[numerator_index].Numerator.Units.Equals(string.Empty)
+                        && !Ratios[numerator_index].Numerator.Substance.Equals(new Molecule()))
                     {
-                        ratios_[numerator_index].Numerator.Units = string.Empty;
-                        ratios_[numerator_index].Numerator.Substance = new ParticleQuantityPair<Molecule, int>(new Molecule(), 0);
+                        Ratios[numerator_index].Numerator.Units = string.Empty;
+                        Ratios[numerator_index].Numerator.Substance = Tuple.Create(new Molecule(), 0);
 
-                        ratios_[denominator_index].Denominator.Units = string.Empty;
-                        ratios_[denominator_index].Denominator.Substance = new ParticleQuantityPair<Molecule, int>(new Molecule(), 0);
+                        Ratios[denominator_index].Denominator.Units = string.Empty;
+                        Ratios[denominator_index].Denominator.Substance = Tuple.Create(new Molecule(), 0);
                     }
                     
                 }
 
-                ratios_[numerator_index].Simplify();
+                Ratios[numerator_index].Simplify();
             }
 
-            for (int ratio_index = 1; ratio_index < ratios_.Count; ++ratio_index)
+            for (int ratio_index = 1; ratio_index < Ratios.Count; ++ratio_index)
             {
-                ratios_[0].MultiplyByRatio(ratios_[ratio_index]);
+                Ratios[0].MultiplyByRatio(Ratios[ratio_index]);
             }
 
-            result = ratios_[0].Numerator;
+            result = Ratios[0].Numerator;
 
             return result;
         }

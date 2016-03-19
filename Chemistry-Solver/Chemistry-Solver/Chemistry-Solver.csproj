@@ -52,7 +52,6 @@
     <Compile Include="src\Chemistry\DimensionalAnalysis.cs" />
     <Compile Include="src\Chemistry\Element.cs" />
     <Compile Include="src\Chemistry\Molecule.cs" />
-    <Compile Include="src\Chemistry\ParticleQuantityPair.cs" />
     <Compile Include="src\Chemistry\PeriodicTable.cs" />
     <Compile Include="src\Chemistry\Ratio.cs" />
     <Compile Include="src\Chemistry\Stoichiometry.cs" />

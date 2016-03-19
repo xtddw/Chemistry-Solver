@@ -2,15 +2,23 @@
 
 namespace BSmith.ChemistrySolver.Models
 {
+    /// <summary>
+    /// The model for the periodic table controller.
+    /// </summary>
     public class PeriodicTableModel
     {
-        private PeriodicTable periodic_table_;
-        public PeriodicTable PTable { get { return periodic_table_; } private set { periodic_table_ = value; } }
+        /// <summary>
+        /// The periodic table.
+        /// </summary>
+        public PeriodicTable Table { get; private set; }
 
+        /// <summary>
+        /// Creates a new periodic table model.
+        /// </summary>
         public PeriodicTableModel()
         {
-            periodic_table_ = new PeriodicTable();
-            periodic_table_.LoadData("..\\..\\data\\ElementData.csv");
+            Table = new PeriodicTable();
+            Table.LoadDataFromCSV("..\\..\\data\\ElementData.csv");
         }
     }
 }
