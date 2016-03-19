@@ -3,23 +3,34 @@ using System.Windows.Forms;
 
 namespace BSmith.ChemistrySolver.Controllers
 {
-    public partial class LauncherController : Form
+    public partial class LauncherController : Form, Interfaces.ILauncher
     {
-        Models.LauncherModel model_;
+        /// <summary>
+        /// The launcher model for the controller.
+        /// </summary>
+        private Models.LauncherModel model_;
 
+        /// <summary>
+        /// Creates a new launcher controller.
+        /// </summary>
         public LauncherController()
         {
             model_ = new Models.LauncherModel(this);
             InitializeComponent();
         }
 
-        private void btnEquationBalancer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Opens the equation balancer window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void BalanceEquationsButtonClick(object sender, EventArgs e)
         {
             if (!model_.EquationBalancer.IsDisposed && !model_.EquationBalancer.Visible)
             {
-                model_.EquationBalancer.Show();  
+                model_.EquationBalancer.Show();
             }
-            else if(model_.EquationBalancer.IsDisposed)
+            else if (model_.EquationBalancer.IsDisposed)
             {
                 model_.EquationBalancer = new EquationBalancerController();
                 model_.EquationBalancer.Owner = this;
@@ -27,7 +38,32 @@ namespace BSmith.ChemistrySolver.Controllers
             }
         }
 
-        private void btnPeriodicTable_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Opens the combustion analysis window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void CombustionAnalysisButtonClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Opens the empirical formula derivation window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void EmpiricalFormulaDerivationButtonClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Opens the periodic table window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void PeriodicTableButtonClick(object sender, EventArgs e)
         {
             if (!model_.PeriodicTable.IsDisposed && !model_.PeriodicTable.Visible)
             {
@@ -41,7 +77,12 @@ namespace BSmith.ChemistrySolver.Controllers
             }
         }
 
-        private void btnStoichiometry_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Opens the stoichiometry window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void StoichiometryButtonClick(object sender, EventArgs e)
         {
             if (!model_.Stoichiometry.IsDisposed && !model_.Stoichiometry.Visible)
             {
@@ -55,7 +96,12 @@ namespace BSmith.ChemistrySolver.Controllers
             }
         }
 
-        private void btnUnitConversion_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Opens the unit conversion window.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void UnitConversionButtonClick(object sender, EventArgs e)
         {
             if (!model_.UnitConversion.IsDisposed && !model_.UnitConversion.Visible)
             {

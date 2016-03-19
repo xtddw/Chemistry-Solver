@@ -48,7 +48,7 @@
             this.btnEquationBalancer.TabIndex = 0;
             this.btnEquationBalancer.Text = "Balance Equations";
             this.btnEquationBalancer.UseVisualStyleBackColor = true;
-            this.btnEquationBalancer.Click += new System.EventHandler(this.btnEquationBalancer_Click);
+            this.btnEquationBalancer.Click += new System.EventHandler(this.BalanceEquationsButtonClick);
             // 
             // btnCombustionAnalysis
             // 
@@ -68,7 +68,7 @@
             this.btnStoichiometry.TabIndex = 3;
             this.btnStoichiometry.Text = "Stoichiometry";
             this.btnStoichiometry.UseVisualStyleBackColor = true;
-            this.btnStoichiometry.Click += new System.EventHandler(this.btnStoichiometry_Click);
+            this.btnStoichiometry.Click += new System.EventHandler(this.StoichiometryButtonClick);
             // 
             // groupBox1
             // 
@@ -93,6 +93,7 @@
             this.btnEmpirical.TabIndex = 5;
             this.btnEmpirical.Text = "Empirical Formula Derivation";
             this.btnEmpirical.UseVisualStyleBackColor = true;
+            this.btnEmpirical.Click += new System.EventHandler(this.EmpiricalFormulaDerivationButtonClick);
             // 
             // btnPeriodicTable
             // 
@@ -102,7 +103,7 @@
             this.btnPeriodicTable.TabIndex = 4;
             this.btnPeriodicTable.Text = "Periodic Table";
             this.btnPeriodicTable.UseVisualStyleBackColor = true;
-            this.btnPeriodicTable.Click += new System.EventHandler(this.btnPeriodicTable_Click);
+            this.btnPeriodicTable.Click += new System.EventHandler(this.PeriodicTableButtonClick);
             // 
             // groupBox2
             // 
@@ -123,6 +124,7 @@
             this.btnUnitConversion.TabIndex = 1;
             this.btnUnitConversion.Text = "Unit Conversion";
             this.btnUnitConversion.UseVisualStyleBackColor = true;
+            this.btnUnitConversion.Click += new System.EventHandler(this.UnitConversionButtonClick);
             // 
             // LauncherController
             // 

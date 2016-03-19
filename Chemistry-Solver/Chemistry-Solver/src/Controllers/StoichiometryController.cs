@@ -6,10 +6,19 @@ using System.Windows.Forms;
 
 namespace BSmith.ChemistrySolver.Controllers
 {
-    public partial class StoichiometryController : Form
+    /// <summary>
+    /// The controller for the stoichiometry window.
+    /// </summary>
+    public partial class StoichiometryController : Form, Interfaces.IStoichiometry
     {
+        /// <summary>
+        /// The model for the controller.
+        /// </summary>
         private Models.StoichiometryModel model_;
 
+        /// <summary>
+        /// Creates a new stoichiometry controller.
+        /// </summary>
         public StoichiometryController()
         {
             InitializeComponent();
@@ -45,16 +54,47 @@ namespace BSmith.ChemistrySolver.Controllers
             rtbox_result.SelectedText = text;
         }
 
-        private void SetMoleculeText(ParticleQuantityPair<Molecule, int> molecule)
+        private void SetMoleculeText(Tuple<Molecule, int> molecule)
         {
-            for (var i = 0; i < molecule.Particle.Elements.Count; ++i)
+            for (var i = 0; i < molecule.Item1.Elements.Count; ++i)
             {
-                SetNormalText(molecule.Particle.Elements[i].Particle.Symbol);
-                SetSubscriptText(molecule.Particle.Elements[i].Quantity.ToString());
+                SetNormalText(molecule.Item1.Elements[i].Item1.Symbol);
+                SetSubscriptText(molecule.Item1.Elements[i].Item2.ToString());
             }
         }
 
-        private void btn_input_clear_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Performs the stoichiometry to calculate the desired output.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void CalculateResultButtonClick(object sender, EventArgs e)
+        {
+            rtbox_result.SelectionAlignment = HorizontalAlignment.Center;
+            rtbox_result.Clear();
+
+            var stoich = new Stoichiometry();
+            model_.OutputValue = stoich.CalculateOutput(model_.InputValue, model_.OutputValue);
+
+            SetAmountText(model_.InputValue.Amount.ToString());
+            SetNormalText(" ");
+            SetNormalText(model_.InputValue.Units);
+            SetNormalText(" of ");
+            SetMoleculeText(model_.InputValue.Substance);
+            SetNormalText(" = ");
+            SetAmountText(model_.OutputValue.Amount.ToString());
+            SetNormalText(" ");
+            SetNormalText(model_.OutputValue.Units);
+            SetNormalText(" of ");
+            SetMoleculeText(model_.OutputValue.Substance);
+        }
+
+        /// <summary>
+        /// Clears the form of user input.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void ClearInputButtonClick(object sender, EventArgs e)
         {
             //Clear Input
             model_.Equation = new ChemicalEquation();
@@ -73,7 +113,12 @@ namespace BSmith.ChemistrySolver.Controllers
             rtbox_result.Clear();
         }
 
-        private void btn_input_enter_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Loads user input into the form so it can be used for calculations.
+        /// </summary>
+        /// <param name="sender">The button that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void EnterInputButtonClick(object sender, EventArgs e)
         {
             model_.Equation = ChemicalEquation.InterpretEquation(tbox_equation_input.Text);
             model_.InputValue = new Value();
@@ -94,90 +139,94 @@ namespace BSmith.ChemistrySolver.Controllers
                 }
 
                 //populate input and output listboxes
-                foreach(ParticleQuantityPair<Molecule, int> molecule in model_.Equation.Reactants)
+                foreach(var molecule in model_.Equation.Reactants)
                 {
-                    lbox_input.Items.Add(molecule.ToString());
-                    lbox_output.Items.Add(molecule.ToString());
+                    lbox_input.Items.Add($"{molecule.Item2}{molecule.Item1}");
+                    lbox_output.Items.Add($"{molecule.Item2}{molecule.Item1}");
                 }
 
-                foreach (ParticleQuantityPair<Molecule, int> molecule in model_.Equation.Products)
+                foreach (var molecule in model_.Equation.Products)
                 {
-                    lbox_input.Items.Add(molecule.ToString());
-                    lbox_output.Items.Add(molecule.ToString());
+                    lbox_input.Items.Add($"{molecule.Item2}{molecule.Item1}");
+                    lbox_output.Items.Add($"{molecule.Item2}{molecule.Item1}");
                 }
             }
         }
 
-        private void lbox_intput_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Updates the model's input variable with new quantity information.
+        /// </summary>
+        /// <param name="sender">The textbox that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void InputAmountValueChanged(object sender, EventArgs e)
         {
-            var coefficient = Regex.Matches(lbox_input.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
+            var textbox = sender as TextBox;
+            var amount = 0.0;
+
+            double.TryParse(textbox.Text, out amount);
+            model_.InputValue.Amount = amount;
+        }
+
+        /// <summary>
+        /// Updates the model's input variable with new substance information.
+        /// </summary>
+        /// <param name="sender">The list box that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void InputMoleculeSelectionChanged(object sender, EventArgs e)
+        {
+            var listbox = sender as ListBox;
+            var coefficient = Regex.Matches(listbox.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
             var amount = 0;
             int.TryParse(coefficient[0].Groups[1].Value, out amount);
 
             var molecule = ChemicalEquation.CreateMolecule(lbox_input.Text);
-            model_.InputValue.Substance = new ParticleQuantityPair<Molecule, int>(molecule, amount);
+            model_.InputValue.Substance = Tuple.Create(molecule, amount);
         }
 
-        private void lbox_output_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Updates the model's input variable with new unit information.
+        /// </summary>
+        /// <param name="sender">The combobox that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void InputUnitSelectionChanged(object sender, EventArgs e)
         {
-            var coefficient = Regex.Matches(lbox_output.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
+            var combobox = sender as ComboBox;
+
+            if (combobox.SelectedItem != null)
+            {
+                model_.InputValue.Units = combobox.SelectedItem.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Updates the model's output variable with new substance information.
+        /// </summary>
+        /// <param name="sender">The listbox that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void OutputMoleculeSelectionChanged(object sender, EventArgs e)
+        {
+            var listbox = sender as ListBox;
+            var molecule = ChemicalEquation.CreateMolecule(listbox.Text);
+            var coefficient = Regex.Matches(listbox.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
+
             var amount = 0;
             int.TryParse(coefficient[0].Groups[1].Value, out amount);
-
-            var molecule = ChemicalEquation.CreateMolecule(lbox_output.Text);
-            model_.OutputValue.Substance = new ParticleQuantityPair<Molecule, int>(molecule, amount);
+           
+            model_.OutputValue.Substance = Tuple.Create(molecule, amount);
         }
 
-        private void tbox_input_amount_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Updates the model's output variable with new unit information.
+        /// </summary>
+        /// <param name="sender">The listbox that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void OutputUnitSelectionChanged(object sender, EventArgs e)
         {
-            var amount = 0.0;
-            double.TryParse(((TextBox)sender).Text, out amount);
-            model_.InputValue.Amount = amount;
-        }
+            var combobox = sender as ComboBox;
 
-        private void cbox_input_unit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbox_intput_unit.SelectedItem != null)
+            if(combobox.SelectedItem != null)
             {
-                 model_.InputValue.Units = cbox_intput_unit.SelectedItem.ToString();
-            }
-        }
-
-        private void cbox_output_unit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbox_output_unit.SelectedItem != null)
-            {
-                model_.OutputValue.Units = cbox_output_unit.SelectedItem.ToString();
-            }
-        }
-
-        private void btn_calculate_result_Click(object sender, EventArgs e)
-        {
-            rtbox_result.SelectionAlignment = HorizontalAlignment.Center;
-            rtbox_result.Clear();
-
-            var stoich = new Stoichiometry();           
-            model_.OutputValue = stoich.CalculateOutput(model_.InputValue, model_.OutputValue);
-
-            SetAmountText(model_.InputValue.Amount.ToString());
-            SetNormalText(" ");
-            SetNormalText(model_.InputValue.Units);
-            SetNormalText(" of ");
-            SetMoleculeText(model_.InputValue.Substance);
-            SetNormalText(" = ");
-            SetAmountText(model_.OutputValue.Amount.ToString());
-            SetNormalText(" ");
-            SetNormalText(model_.OutputValue.Units);
-            SetNormalText(" of ");
-            SetMoleculeText(model_.OutputValue.Substance);
-        }
-
-        private void TextBox_KeyPress(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                model_.OutputValue.Units = combobox.SelectedItem.ToString();
             }
         }
     }

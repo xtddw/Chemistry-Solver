@@ -5,11 +5,15 @@
     /// </summary>
     public class Ratio
     {
-        private Value numerator_;
-        public Value Numerator { get { return numerator_; } set { numerator_ = value; } }
+        /// <summary>
+        /// The numerator of the ratio.
+        /// </summary>
+        public Value Numerator { get; set; }
 
-        private Value denominator_;
-        public Value Denominator { get { return denominator_; } set { denominator_ = value; } }
+        /// <summary>
+        /// The denominator of the ratio.
+        /// </summary>
+        public Value Denominator { get; set; }
 
         /// <summary>
         /// Constructs a new Ratio.
@@ -68,7 +72,7 @@
         /// <returns>A string representation of a Ratio.</returns>
         public override string ToString()
         {
-            return string.Format("{0} / {1}", numerator_, denominator_);
+            return $"{Numerator} / {Denominator}";
         }
     }
 }

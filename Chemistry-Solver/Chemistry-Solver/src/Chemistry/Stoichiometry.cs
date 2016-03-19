@@ -1,4 +1,6 @@
-﻿namespace BSmith.Chemistry
+﻿using System;
+
+namespace BSmith.Chemistry
 {
     /// <summary>
     /// A class providing stoichiometry functionality.
@@ -26,11 +28,11 @@
 
             if (value.Units.Equals("grams"))
             {
-                result = value.Substance.Quantity * value.Substance.Particle.MolarMass();
+                result = value.Substance.Item2 * value.Substance.Item1.MolarMass();
             }
             else if (value.Units.Equals("moles"))
             {
-                result = value.Substance.Quantity;
+                result = value.Substance.Item2;
             }
             else if (value.Units.Equals("particles"))
             {
@@ -49,7 +51,7 @@
         public Value CalculateOutput(Value input, Value output)
         {
             dimensional_analysis_.Ratios.Clear();
-            dimensional_analysis_.GenerateRatio(input, new Value(1.0, string.Empty, new ParticleQuantityPair<Molecule, int>(new Molecule(), 0)));
+            dimensional_analysis_.GenerateRatio(input, new Value(1.0, string.Empty, Tuple.Create(new Molecule(), 0)));
 
             Value output_numerator = new Value(ConversionValue(output), output.Units, output.Substance);        
             Value output_denominator = new Value(ConversionValue(input), input.Units, input.Substance);

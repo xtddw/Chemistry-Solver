@@ -9,22 +9,24 @@ namespace BSmith.Chemistry
     /// </summary>
     public class PeriodicTable
     {
-        private List<Element> element_data_;
-        public List<Element> ElementData { get { return element_data_; } private set { element_data_ = value; } }
+        /// <summary>
+        /// The list of elements in the periodic table.
+        /// </summary>
+        public List<Element> ElementData { get; private set; }
 
         /// <summary>
         /// Constructs a new PeriodicTable.
         /// </summary>
         public PeriodicTable() 
         {
-            element_data_ = new List<Element>();
+            ElementData = new List<Element>();
         }
 
         /// <summary>
-        /// Loads element data from the specified file.
+        /// Loads element data from the specified .csv file.
         /// </summary>
         /// <param name="file_name">The csv file containing element data.</param>
-        public void LoadData(string file_name)
+        public void LoadDataFromCSV(string file_name)
         {
             using (StreamReader file = new StreamReader(file_name))
             {
@@ -46,7 +48,7 @@ namespace BSmith.Chemistry
                     int element_column_location = 0;
                     int.TryParse(line_data[5], out element_column_location);
 
-                    element_data_.Add(new Element(element_atomic_number, line_data[1], line_data[2], element_molar_mass, new System.Drawing.Point(element_row_location, element_column_location)));
+                    ElementData.Add(new Element(element_atomic_number, line_data[1], line_data[2], element_molar_mass));
                 }
             }
         }
@@ -58,9 +60,9 @@ namespace BSmith.Chemistry
         /// <returns>An Element with the specified atomic number.</returns>
         public Element FindElementByAtomicNumber(int atomic_number)
         {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0, new System.Drawing.Point());
+            Element result = new Element(0, string.Empty, string.Empty, 0.0);
 
-            result = element_data_.Find(element => element.AtomicNumber == atomic_number);
+            result = ElementData.Find(element => element.AtomicNumber == atomic_number);
 
             return result;
         }
@@ -72,9 +74,9 @@ namespace BSmith.Chemistry
         /// <returns>An Element with the specified name.</returns>
         public Element FindElementByName(string name)
         {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0, new System.Drawing.Point());
+            Element result = new Element(0, string.Empty, string.Empty, 0.0);
 
-            result = element_data_.Find(element => element.Name == name);
+            result = ElementData.Find(element => element.Name == name);
 
             return result;
         }
@@ -86,9 +88,9 @@ namespace BSmith.Chemistry
         /// <returns>An Element with the specified symbol.</returns>
         public Element FindElementBySymbol(string symbol)
         {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0, new System.Drawing.Point());
+            Element result = new Element(0, string.Empty, string.Empty, 0.0);
 
-            result = element_data_.Find(element => element.Symbol == symbol);
+            result = ElementData.Find(element => element.Symbol == symbol);
 
             return result;
         }
@@ -100,9 +102,9 @@ namespace BSmith.Chemistry
         /// <returns>An Element with the specified molar mass.</returns>
         public Element FindElementByMolarMass(double molar_mass)
         {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0, new System.Drawing.Point());
+            Element result = new Element(0, string.Empty, string.Empty, 0.0);
 
-            result = element_data_.Find(element => element.MolarMass == molar_mass);
+            result = ElementData.Find(element => element.MolarMass == molar_mass);
 
             return result;
         }

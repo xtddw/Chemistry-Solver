@@ -76,7 +76,7 @@
             this.btn_input_clear.TabIndex = 1;
             this.btn_input_clear.Text = "Clear";
             this.btn_input_clear.UseVisualStyleBackColor = true;
-            this.btn_input_clear.Click += new System.EventHandler(this.btn_input_clear_Click);
+            this.btn_input_clear.Click += new System.EventHandler(this.ClearInputButtonClick);
             // 
             // gbox_output
             // 
@@ -117,7 +117,7 @@
             this.cbox_output_unit.Name = "cbox_output_unit";
             this.cbox_output_unit.Size = new System.Drawing.Size(68, 21);
             this.cbox_output_unit.TabIndex = 8;
-            this.cbox_output_unit.SelectedIndexChanged += new System.EventHandler(this.cbox_output_unit_SelectedIndexChanged);
+            this.cbox_output_unit.SelectedIndexChanged += new System.EventHandler(this.OutputUnitSelectionChanged);
             // 
             // lbl_output_units
             // 
@@ -137,7 +137,7 @@
             this.lbox_output.Name = "lbox_output";
             this.lbox_output.Size = new System.Drawing.Size(200, 108);
             this.lbox_output.TabIndex = 1;
-            this.lbox_output.SelectedIndexChanged += new System.EventHandler(this.lbox_output_SelectedIndexChanged);
+            this.lbox_output.SelectedIndexChanged += new System.EventHandler(this.OutputMoleculeSelectionChanged);
             // 
             // btn_input_enter
             // 
@@ -147,7 +147,7 @@
             this.btn_input_enter.TabIndex = 2;
             this.btn_input_enter.Text = "Enter";
             this.btn_input_enter.UseVisualStyleBackColor = true;
-            this.btn_input_enter.Click += new System.EventHandler(this.btn_input_enter_Click);
+            this.btn_input_enter.Click += new System.EventHandler(this.EnterInputButtonClick);
             // 
             // gbox_input
             // 
@@ -189,7 +189,7 @@
             this.cbox_intput_unit.Name = "cbox_intput_unit";
             this.cbox_intput_unit.Size = new System.Drawing.Size(68, 21);
             this.cbox_intput_unit.TabIndex = 6;
-            this.cbox_intput_unit.SelectedIndexChanged += new System.EventHandler(this.cbox_input_unit_SelectedIndexChanged);
+            this.cbox_intput_unit.SelectedIndexChanged += new System.EventHandler(this.InputUnitSelectionChanged);
             // 
             // lbl_input_amount
             // 
@@ -209,9 +209,7 @@
             this.tbox_input_amount.Name = "tbox_input_amount";
             this.tbox_input_amount.Size = new System.Drawing.Size(68, 20);
             this.tbox_input_amount.TabIndex = 5;
-            this.tbox_input_amount.TextChanged += new System.EventHandler(this.tbox_input_amount_TextChanged);
-            this.tbox_input_amount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
-            this.tbox_input_amount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
+            this.tbox_input_amount.TextChanged += new System.EventHandler(this.InputAmountValueChanged);
             // 
             // lbox_input
             // 
@@ -220,7 +218,7 @@
             this.lbox_input.Name = "lbox_input";
             this.lbox_input.Size = new System.Drawing.Size(200, 108);
             this.lbox_input.TabIndex = 1;
-            this.lbox_input.SelectedIndexChanged += new System.EventHandler(this.lbox_intput_SelectedIndexChanged);
+            this.lbox_input.SelectedIndexChanged += new System.EventHandler(this.InputMoleculeSelectionChanged);
             // 
             // lbl_equation_input
             // 
@@ -237,8 +235,6 @@
             this.tbox_equation_input.Name = "tbox_equation_input";
             this.tbox_equation_input.Size = new System.Drawing.Size(298, 20);
             this.tbox_equation_input.TabIndex = 0;
-            this.tbox_equation_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
-            this.tbox_equation_input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
             // 
             // btn_calculate_result
             // 
@@ -248,7 +244,7 @@
             this.btn_calculate_result.TabIndex = 7;
             this.btn_calculate_result.Text = "Calculate";
             this.btn_calculate_result.UseVisualStyleBackColor = true;
-            this.btn_calculate_result.Click += new System.EventHandler(this.btn_calculate_result_Click);
+            this.btn_calculate_result.Click += new System.EventHandler(this.CalculateResultButtonClick);
             // 
             // rtbox_result
             // 
@@ -261,8 +257,6 @@
             this.rtbox_result.Size = new System.Drawing.Size(483, 32);
             this.rtbox_result.TabIndex = 9;
             this.rtbox_result.Text = "";
-            this.rtbox_result.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
-            this.rtbox_result.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyPress);
             // 
             // StoichiometryController
             // 

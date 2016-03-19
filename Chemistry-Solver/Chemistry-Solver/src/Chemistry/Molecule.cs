@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BSmith.Chemistry
 {
@@ -7,28 +8,30 @@ namespace BSmith.Chemistry
     /// </summary>
     public class Molecule
     {
-        private List<ParticleQuantityPair<Element, int>> elements_;
-        public List<ParticleQuantityPair<Element, int>> Elements { get { return elements_; } private set { elements_ = value; } }
+        /// <summary>
+        /// A collection of <see cref="Tuple{T1, T2}"/>that represent the elements and their quantities found in the molecule.
+        /// </summary>
+        public List<Tuple<Element, int>> Elements { get; private set; }
 
         /// <summary>
         /// Constructs an empty Molecule.
         /// </summary>
         public Molecule()
         {
-            elements_ = new List<ParticleQuantityPair<Element, int>>();
+            Elements = new List<Tuple<Element, int>>();
         }
 
         /// <summary>
-        /// Calculates the molar mass of the molecule.
+        /// Calculates the molecule's molar mass.
         /// </summary>
         /// <returns>The molecule's molar mass.</returns>
         public double MolarMass()
         {
             var molar_mass = 0.0;
 
-            for (int element_index = 0; element_index < elements_.Count; ++element_index)
+            for (int element_index = 0; element_index < Elements.Count; ++element_index)
             {
-                molar_mass += elements_[element_index].Particle.MolarMass * elements_[element_index].Quantity;
+                molar_mass += Elements[element_index].Item1.MolarMass * Elements[element_index].Item2;
             }
 
             return molar_mass;
@@ -42,9 +45,9 @@ namespace BSmith.Chemistry
         {
             string output = string.Empty;
 
-            foreach (ParticleQuantityPair<Element, int> atom in elements_)
+            foreach (Tuple<Element, int> atom in Elements)
             {
-                output += atom.Particle.Symbol + "_(" + atom.Quantity + ")";
+                output += atom.Item1.Symbol + "_(" + atom.Item2 + ")";
             }
 
             return output;
