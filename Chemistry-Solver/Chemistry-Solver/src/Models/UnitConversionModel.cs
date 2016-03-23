@@ -1,7 +1,14 @@
-﻿namespace BSmith.ChemistrySolver.Models
+﻿using BSmith.ChemistrySolver.Utility;
+
+namespace BSmith.ChemistrySolver.Models
 {
-    class UnitConversionModel
+    public class UnitConversionModel
     {
-        
+        UnitConverter converter;
+
+        public UnitConversionModel()
+        {
+            converter = new UnitConverter();
+        }
     }
 }

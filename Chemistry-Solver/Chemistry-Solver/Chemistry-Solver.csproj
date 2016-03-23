@@ -101,6 +101,8 @@
     <Compile Include="src\Models\StoichiometryModel.cs" />
     <Compile Include="src\Models\UnitConversionModel.cs" />
     <Compile Include="src\Program.cs" />
+    <Compile Include="src\Utility\ConversionValue.cs" />
+    <Compile Include="src\Utility\UnitConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
