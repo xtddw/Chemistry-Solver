@@ -40,21 +40,6 @@ namespace BSmith.ChemistrySolver.Utility
         /// <summary>
         /// Constructs a new conversion value with the given parameters.
         /// </summary>
-        /// <param name="value">A numeric value representing how much of 'upperUnit' is equal to exactly 1 of 'lowerUnit'.</param>
-        /// <param name="upperUnit">The unit in the numerator position of a conversion value.</param>
-        /// <param name="lowerUnit">The unit in the denominator position of a conversion value.</param>
-        /// <param name="type">The type of unit conversion this ratio is associated with. Ex: distance, time, temperature, etc.</param>
-        public ConversionValue(double value, string upperUnit, string lowerUnit, string type)
-        {
-            Value = value;
-            UpperUnits.Add(upperUnit);
-            LowerUnits.Add(lowerUnit);
-            Type = type;
-        }
-
-        /// <summary>
-        /// Constructs a new conversion value with the given parameters.
-        /// </summary>
         /// <param name="value">A numeric value representing how much of 'upperUnits' is equal to exactly 1 of 'lowerUnits'.</param>
         /// <param name="upperUnits">The units found in the numerator position of a conversion value.</param>
         /// <param name="lowerUnits">The units found in the denominator position of a conversion value.</param>
@@ -62,8 +47,8 @@ namespace BSmith.ChemistrySolver.Utility
         public ConversionValue(double value, string[] upperUnits, string[] lowerUnits, string type)
         {
             Value = value;
-            UpperUnits.AddRange(upperUnits);
-            LowerUnits.AddRange(lowerUnits);
+            UpperUnits.AddRange(upperUnits ?? new string[] { null });
+            LowerUnits.AddRange(lowerUnits ?? new string[] { null });
             Type = type;
         }
 
@@ -131,6 +116,57 @@ namespace BSmith.ChemistrySolver.Utility
             }
 
             return builder.ToString().Trim();
-        }           
+        }
+
+        /// <summary>
+        /// Compares equality between two conversion values.
+        /// </summary>
+        /// <param name="otherValue">Another conversion value to compare against.</param>
+        /// <returns>The equality between two conversion values.</returns>
+        public bool Equals(ConversionValue otherValue)
+        {
+            bool equalValues = false;
+
+            if (otherValue != null)
+            {
+                if (Type.Equals(otherValue.Type) &&
+                    Value == otherValue.Value &&
+                    UpperUnits.All(unit => unit?.Equals(otherValue.UpperUnits.ElementAt(UpperUnits.IndexOf(unit))) ?? true) &&
+                    LowerUnits.All(unit => unit?.Equals(otherValue.LowerUnits.ElementAt(LowerUnits.IndexOf(unit))) ?? true))
+                {
+                    equalValues = true;
+                }
+            }
+
+            return equalValues;
+        }
+
+        /// <summary>
+        /// Compares equality between two conversion values.
+        /// </summary>
+        /// <param name="obj">Another conversion value to compare against.</param>
+        /// <returns>The equality between two conversion values.</returns>
+        public override bool Equals(object obj)
+        {
+            bool equalValues = false;
+
+            if (obj.GetType() == typeof(ConversionValue))
+            {
+                var otherValue = obj as ConversionValue;
+
+                if (otherValue != null)
+                {
+                    if (Type.Equals(otherValue.Type) &&
+                        Value == otherValue.Value &&
+                        UpperUnits.All(unit => unit?.Equals(otherValue.UpperUnits.ElementAt(UpperUnits.IndexOf(unit))) ?? true) &&
+                        LowerUnits.All(unit => unit?.Equals(otherValue.LowerUnits.ElementAt(LowerUnits.IndexOf(unit))) ?? true))
+                    {
+                        equalValues = true;
+                    }
+                }
+            }
+
+            return equalValues;
+        }
     }
 }

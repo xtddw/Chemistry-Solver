@@ -1,16 +1,24 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace BSmith.ChemistrySolver.Utility
 {
+    /// <summary>
+    /// Provides functionality for converting values from one unit to another.
+    /// </summary>
     public class UnitConverter
     {
-    
-        public UnitConverter()
-        {
+        /// <summary>
+        /// The conversion tables used to convert numbers from one unit to another.
+        /// </summary>
+        public List<ConversionTable> ConversionTables { get; } = new List<ConversionTable>();
 
-        }
+        /// <summary>
+        /// Constructs an empty <see cref="UnitConverter"/>
+        /// </summary>
+        public UnitConverter() {}
 
         void LoadConversionTablesFromCSV(string fileName)
         {
