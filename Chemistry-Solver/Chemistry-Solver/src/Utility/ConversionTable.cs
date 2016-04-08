@@ -81,7 +81,7 @@ namespace BSmith.ChemistrySolver.Utility
         }
 
         /// <summary>
-        /// Creates a new <see cref="ConversionValue"/> in the format of:  X <paramref name="remainingUnit"/> per 1 <paramref name="canceledUnit"/> , where <paramref name="canceledUnit"/> is converted into <paramref name="remainingUnit"/>.
+        /// Creates a new <see cref="ConversionValue"/> in the format of:  X <paramref name="remainingUnit"/> per 1 <paramref name="canceledUnit"/>.
         /// </summary>
         /// <param name="remainingUnit">The output unit, or the unit that remains after being multiplied with the input <see cref="ConversionValue"/>.</param>
         /// <param name="canceledUnit">The unit that will cancel when multiplied with the input <see cref="ConversionValue"/>.</param>
@@ -90,24 +90,31 @@ namespace BSmith.ChemistrySolver.Utility
         {
             var remainingUnitRowIndex = Table.GetColumnData(ConversionType).IndexOf(remainingUnit);
             var canceledUnitRowIndex = Table.GetColumnData(ConversionType).IndexOf(canceledUnit);
+            var conversionRatio = new ConversionValue();
 
-            var cellData = string.Empty;
-            var cellValue = 0d;
-
-            // Check if the conversionValue coordinates access the lower half of the conversionTable, if so, swap coordinates and invert the value.
-            if(canceledUnitRowIndex <= remainingUnitRowIndex)
+            if(remainingUnitRowIndex != -1 &&
+               canceledUnitRowIndex != -1)
             {
-                cellData = Table.GetColumnData(canceledUnit).ElementAt(remainingUnitRowIndex).ToString();
-                double.TryParse(cellData, out cellValue);
-            }
-            else
-            {
-                cellData = Table.GetColumnData(remainingUnit).ElementAt(canceledUnitRowIndex).ToString();
-                double.TryParse(cellData, out cellValue);
-                cellValue = 1 / cellValue;
+                var cellData = string.Empty;
+                var cellValue = 0d;
+
+                // Check if the conversionValue coordinates access the lower half of the conversionTable, if so, swap coordinates and invert the value.
+                if (canceledUnitRowIndex <= remainingUnitRowIndex)
+                {
+                    cellData = Table.GetColumnData(canceledUnit).ElementAt(remainingUnitRowIndex).ToString();
+                    double.TryParse(cellData, out cellValue);
+                }
+                else
+                {
+                    cellData = Table.GetColumnData(remainingUnit).ElementAt(canceledUnitRowIndex).ToString();
+                    double.TryParse(cellData, out cellValue);
+                    cellValue = 1 / cellValue;
+                }
+
+                conversionRatio = new ConversionValue(cellValue, new[] { remainingUnit }, new[] { canceledUnit }, ConversionType);
             }
 
-            return new ConversionValue(cellValue, new[] { remainingUnit }, new[] { canceledUnit }, ConversionType);
+            return conversionRatio;
         }
 
         /// <summary>

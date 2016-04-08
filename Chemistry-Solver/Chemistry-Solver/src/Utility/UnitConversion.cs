@@ -8,24 +8,31 @@ namespace BSmith.ChemistrySolver.Utility
     /// <summary>
     /// Provides functionality for converting values from one unit to another.
     /// </summary>
-    public class UnitConverter
+    public class UnitConversion
     {
         /// <summary>
         /// The conversion tables used to convert numbers from one unit to another.
         /// </summary>
-        public List<ConversionTable> ConversionTables { get; } = new List<ConversionTable>();
+        public List<ConversionTable> TableData { get; } = new List<ConversionTable>();
+
+        public ConversionTable ConversionTable { get; set; } = new ConversionTable(string.Empty);
+        public ConversionValue InputValue { get; set; } = new ConversionValue();
+        public ConversionValue ConversionRatio { get; set; } = new ConversionValue();
 
         /// <summary>
-        /// Constructs an empty <see cref="UnitConverter"/>
+        /// Constructs an empty <see cref="UnitConversion"/>
         /// </summary>
-        public UnitConverter() {}
+        public UnitConversion() {}
+
+        public ConversionTable GetConversionTable(string conversionType)
+               => TableData.FirstOrDefault(table => table.ConversionType.Equals(conversionType));
 
         /// <summary>
-        /// Creates a new <see cref="ConversionTable"/> from a collection of lines.
+        /// Creates a new <see cref="Utility.ConversionTable"/> from a collection of lines.
         /// </summary>
-        /// <param name="lines">A collection of lines that hold the data for a single <see cref="ConversionTable"/>.</param>
-        /// <returns>A new <see cref="ConversionTable"/>.</returns>
-        public ConversionTable CreateConversionTableFromLines(List<List<string>> lines)
+        /// <param name="lines">A collection of lines that hold the data for a single <see cref="Utility.ConversionTable"/>.</param>
+        /// <returns>A new <see cref="Utility.ConversionTable"/>.</returns>
+        public ConversionTable CreateConversionTable(List<List<string>> lines)
         {
             ConversionTable table = null;
 
@@ -75,7 +82,7 @@ namespace BSmith.ChemistrySolver.Utility
 
                         if (lineData.All(conversionValue => conversionValue.Equals(string.Empty)))
                         {
-                            ConversionTables.Add(CreateConversionTableFromLines(lineBlock).Transpose());
+                            TableData.Add(CreateConversionTable(lineBlock).Transpose());
                             lineBlock.Clear();                       
                         }
                         else

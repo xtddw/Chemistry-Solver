@@ -91,6 +91,7 @@
     <Compile Include="src\Interfaces\ILauncher.cs" />
     <Compile Include="src\Interfaces\IPeriodicTable.cs" />
     <Compile Include="src\Interfaces\IStoichiometry.cs" />
+    <Compile Include="src\Interfaces\IUnitConversion.cs" />
     <Compile Include="src\Math\Fraction.cs" />
     <Compile Include="src\Math\Functions.cs" />
     <Compile Include="src\Math\Matrix.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="src\Utility\ConversionTable.cs" />
     <Compile Include="src\Utility\ConversionValue.cs" />
     <Compile Include="src\Utility\DataFile.cs" />
-    <Compile Include="src\Utility\UnitConverter.cs" />
+    <Compile Include="src\Utility\UnitConversion.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
