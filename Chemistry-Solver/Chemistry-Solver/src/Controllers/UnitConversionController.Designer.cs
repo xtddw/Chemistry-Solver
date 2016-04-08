@@ -152,6 +152,8 @@
             this.ClientSize = new System.Drawing.Size(444, 82);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cbox_ConversionType);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UnitConversionController";
             this.Text = "Unit Converter";
             this.Load += new System.EventHandler(this.UnitControllerFormLoad);

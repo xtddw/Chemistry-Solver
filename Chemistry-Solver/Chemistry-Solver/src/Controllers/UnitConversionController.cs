@@ -1,10 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using BSmith.ChemistrySolver.Interfaces;
+﻿using BSmith.ChemistrySolver.Interfaces;
 using BSmith.ChemistrySolver.Utility;
+using System;
+using System.Windows.Forms;
 
 namespace BSmith.ChemistrySolver.Controllers
 {
