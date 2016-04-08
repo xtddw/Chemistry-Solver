@@ -117,7 +117,6 @@
             // 
             // btnUnitConversion
             // 
-            this.btnUnitConversion.Enabled = false;
             this.btnUnitConversion.Location = new System.Drawing.Point(6, 19);
             this.btnUnitConversion.Name = "btnUnitConversion";
             this.btnUnitConversion.Size = new System.Drawing.Size(80, 80);

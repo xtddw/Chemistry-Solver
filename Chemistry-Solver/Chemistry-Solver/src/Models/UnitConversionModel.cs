@@ -4,11 +4,8 @@ namespace BSmith.ChemistrySolver.Models
 {
     public class UnitConversionModel
     {
-        UnitConverter converter;
+        public UnitConversion UnitConversion { get; set; } = new UnitConversion();
 
-        public UnitConversionModel()
-        {
-            converter = new UnitConverter();
-        }
+        public UnitConversionModel() {}
     }
 }

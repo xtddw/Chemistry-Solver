@@ -7,12 +7,12 @@ namespace BSmith.ChemistrySolver.Utility.Tests
     public class UnitConverterTests
     {
         /// <summary>
-        /// Tests the table creation process where a collection of lines is extracted from a .csv file, and is sent to the <see cref="UnitConverter.CreateConversionTableFromLines(List{List{string}})"/> method. 
+        /// Tests the table creation process where a collection of lines is extracted from a .csv file, and is sent to the <see cref="UnitConversion.CreateConversionTable(List{List{string}})"/> method. 
         /// </summary>
         [TestCategory("Unit Converter Table Creation"), TestMethod]
         public void UnitConverter_CreateTableFromLines()
         {
-            var unitConverter = new UnitConverter();
+            var unitConverter = new UnitConversion();
             var lineBlock = new List<List<string>>();
 
             var row1 = new List<string> { "Energy", "Erg", "Joule", "Kilocalorie", "Kilowatt hour" };
@@ -27,7 +27,7 @@ namespace BSmith.ChemistrySolver.Utility.Tests
             lineBlock.Add(row4);
             lineBlock.Add(row5);
 
-            var table = unitConverter.CreateConversionTableFromLines(lineBlock);
+            var table = unitConverter.CreateConversionTable(lineBlock);
 
             Assert.IsNotNull(table);
         }
@@ -38,10 +38,10 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         [TestCategory("Unit Converter Table Creation"), TestMethod]
         public void UnitConverter_CreateTablesFromCSV()
         {
-            var unitConverter = new UnitConverter();
+            var unitConverter = new UnitConversion();
             unitConverter.LoadConversionTablesFromCSV("..\\..\\..\\Chemistry-Solver\\data\\UnitConversion.csv");
 
-            Assert.IsTrue(unitConverter.ConversionTables.Count == 8);
+            Assert.IsTrue(unitConverter.TableData.Count == 8);
         }
 
         /// <summary>
@@ -50,10 +50,10 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         [TestCategory("Unit Converter Value Extraction"), TestMethod]
         public void UnitConverter_ReadConversionValueCorrect()
         {
-            var unitConverter = new UnitConverter();
+            var unitConverter = new UnitConversion();
             unitConverter.LoadConversionTablesFromCSV("..\\..\\..\\Chemistry-Solver\\data\\UnitConversion.csv");
 
-            var timeTable = unitConverter.ConversionTables.Find(table => table.ConversionType.Equals("Volume"));
+            var timeTable = unitConverter.GetConversionTable("Volume");
             var pintToQuart = timeTable.GetConversionValue("Pint", "Quart");
 
             Assert.AreEqual(pintToQuart, new ConversionValue(1d/2d, new[] { "Quart" }, new[] { "Pint" }, "Volume"));
