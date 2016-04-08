@@ -129,6 +129,8 @@
     <EmbeddedResource Include="src\Controllers\UnitConversionController.resx">
       <DependentUpon>UnitConversionController.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="data\ElementData.csv" />
+    <None Include="data\UnitConversion.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

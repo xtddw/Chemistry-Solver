@@ -1,20 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BSmith.ChemistrySolver.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BSmith.ChemistrySolver.Utility.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ConversionValueTests
     {
         /// <summary>
         /// Checks for the correct output when dealing with compound unit conversion.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Computation"), TestMethod]
         public void ConversionValue_CompoundUnitConversion_ProperOperation()
         {
             var valueInFeetPerSecond = new ConversionValue(46d, new[] { "feet" }, new[] { "second" }, "velocity");
@@ -29,8 +23,8 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         /// <summary>
         /// Checks for the correct output when dealing with regular unit conversion.
         /// </summary>
-        [TestMethod()]
-        public void ConversionValue_ReuglarUnitConversion_ProperOperation()
+        [TestCategory("Conversion Value Computation"), TestMethod]
+        public void ConversionValue_RegularUnitConversion_ProperOperation()
         {
             var valueInJoules = new ConversionValue(151320d, new[] { "Joules" }, null, "Energy");
             var joulesToKCal = new ConversionValue(0.000239006, new[] { "Calorie" }, new[] { "Joules" }, "Energy");
@@ -42,7 +36,7 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         /// <summary>
         /// Checks for correct output when a unit is assigned a null value.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Unit Canceling"), TestMethod]
         public void ConversionValue_NullUnits_UnitCanceling()
         {
             var valueInCM = new ConversionValue(200d, null, null, "length");
@@ -55,7 +49,7 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         /// <summary>
         /// Checks for correct output when a unit is assigned an empty string.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Unit Canceling"), TestMethod]
         public void ConversionValue_EmptyStringUnits_UnitCanceling()
         {
             var valueInCM = new ConversionValue(200d, new[] { string.Empty }, new[] { string.Empty }, "length");
@@ -68,7 +62,7 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         /// <summary>
         /// Checks for correct output when all values are unitless.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Unit Canceling"), TestMethod]      
         public void ConversionValue_AllValuesUnitless()
         {
             var valueInCM = new ConversionValue(200d, null, null, "length");
@@ -81,7 +75,7 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         /// <summary>
         /// Checks for correct output when the order of multiplication is reversed.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Computation"), TestMethod]
         public void ConversionValue_ComputationOrderReversed()
         {
             var valueInJoules = new ConversionValue(151320d, new[] { "Joules" }, null, "Energy");
@@ -92,9 +86,9 @@ namespace BSmith.ChemistrySolver.Utility.Tests
         }
 
         /// <summary>
-        /// Tests the equal() method in the conversion value.
+        /// Tests the <see cref="ConversionValue.Equals(ConversionValue)"/> method.
         /// </summary>
-        [TestMethod()]
+        [TestCategory("Conversion Value Utility"), TestMethod]
         public void ConversionValue_EqualsOther()
         {
             var valueInInches = new ConversionValue(15d, new[] { "Inches" }, null, "Length");
