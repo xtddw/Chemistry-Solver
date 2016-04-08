@@ -1,10 +1,9 @@
 ﻿using BSmith.Chemistry;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using BSmith.ChemistrySolver.Interfaces;
-using System.Collections.Generic;
 
 namespace BSmith.ChemistrySolver.Controllers
 {
