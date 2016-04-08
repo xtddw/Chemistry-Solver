@@ -15,8 +15,19 @@ namespace BSmith.ChemistrySolver.Utility
         /// </summary>
         public List<ConversionTable> TableData { get; } = new List<ConversionTable>();
 
+        /// <summary>
+        /// The selected table being used for unit conversion calculations.
+        /// </summary>
         public ConversionTable ConversionTable { get; set; } = new ConversionTable(string.Empty);
+
+        /// <summary>
+        /// The input value being used for unit conversion calculations.
+        /// </summary>
         public ConversionValue InputValue { get; set; } = new ConversionValue();
+
+        /// <summary>
+        /// The conversion ratio used for unit conversion calculations.
+        /// </summary>
         public ConversionValue ConversionRatio { get; set; } = new ConversionValue();
 
         /// <summary>
@@ -24,6 +35,17 @@ namespace BSmith.ChemistrySolver.Utility
         /// </summary>
         public UnitConversion() {}
 
+        /// <summary>
+        /// Converts one unit to another.
+        /// </summary>
+        /// <returns>The converted unit.</returns>
+        public ConversionValue PerformConversion() => InputValue * ConversionRatio;
+
+        /// <summary>
+        /// Gets the <see cref="Utility.ConversionTable"/> that has the type <paramref name="conversionType"/>
+        /// </summary>
+        /// <param name="conversionType">The type of unit conversion the table performs.</param>
+        /// <returns>A <see cref="Utility.ConversionTable"/> with the appropriate <paramref name="conversionType"/></returns>
         public ConversionTable GetConversionTable(string conversionType)
                => TableData.FirstOrDefault(table => table.ConversionType.Equals(conversionType));
 

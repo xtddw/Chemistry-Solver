@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BSmith.ChemistrySolver.Interfaces
 {
+    /// <summary>
+    /// The interface that contains the UnitConverter's event handlers.
+    /// </summary>
     public interface IUnitConversion
     {
         void ConversionTypeSelectedIndexChanged(object sender, EventArgs e);
