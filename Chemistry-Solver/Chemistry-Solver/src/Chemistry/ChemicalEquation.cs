@@ -13,33 +13,31 @@ namespace BSmith.Chemistry
         /// <summary>
         /// The reactants found in the <see cref="ChemicalEquation"/>.
         /// </summary>
-        public List<Tuple<Molecule, int>> Reactants { get; set; }
+        public List<Tuple<Molecule, int>> Reactants { get; set; } = new List<Tuple<Molecule, int>>();
 
         /// <summary>
         /// The products found in the <see cref="ChemicalEquation"/>.
         /// </summary>
-        public List<Tuple<Molecule, int>> Products { get; set; }
+        public List<Tuple<Molecule, int>> Products { get; set; } = new List<Tuple<Molecule, int>>();
+
+        /// <summary>
+        /// A <see cref="PeriodicTable"/> all chemical equations use to extract element information from.
+        /// </summary>
+        public static PeriodicTable PTable { get; set; } = null;
 
         /// <summary>
         /// Constructs an empty Chemical Equation.
         /// </summary>
-        public ChemicalEquation()
-        {
-            Reactants = new List<Tuple<Molecule, int>>();
-            Products = new List<Tuple<Molecule, int>>();
-        }
+        public ChemicalEquation() { }
 
         /// <summary>
-        /// Constructs a new ChemicalEquation with the values from another.
+        /// Constructs a new <see cref="ChemicalEquation"/> from a string with element information from <paramref name="ptable"/>.
         /// </summary>
         /// <param name="equation">The equation to pull values from.</param>
-        public ChemicalEquation(ChemicalEquation equation)
+        /// <param name="ptable">A periodic table to extract element information from.</param>
+        public ChemicalEquation(string equation)
         {
-            Reactants = new List<Tuple<Molecule, int>>();
-            Reactants.AddRange(equation.Reactants);
-
-            Products = new List<Tuple<Molecule, int>>();
-            Products.AddRange(equation.Products);
+            InterpretEquation(equation);
         }
 
         /// <summary>
@@ -67,8 +65,10 @@ namespace BSmith.Chemistry
                     }
                     else
                     {
-                        match = Tuple.Create(
-                        match.Item1, 
+                        var matchIndex = unique_elements.IndexOf(match);
+
+                        unique_elements[matchIndex] = Tuple.Create(
+                        match.Item1,
                         match.Item2 + (element_pairs[molecule_index].Item1.Elements[element_index].Item2 * element_pairs[molecule_index].Item2));
                     }
                 }
@@ -106,7 +106,6 @@ namespace BSmith.Chemistry
 
             return (equality_count != 0 && equality_count == reactant_elements.Count) ? true : false;
         }
-
       
         /// <summary>
         /// Balances the <see cref="ChemicalEquation"/>.
@@ -196,20 +195,17 @@ namespace BSmith.Chemistry
         /// <returns>A molecule.</returns>
         public static Molecule CreateMolecule(string input)
         {
-            var ptable = new PeriodicTable();
-            ptable.LoadDataFromCSV("..\\..\\data\\ElementData.csv");
-
             var molecule = new Molecule();
             var elements = Regex.Matches(input, @"[A-Z]{1}[a-z]{0,2}");
             var subscripts = Regex.Matches(input, @"\b\d{1,}\b");
 
             for (var i = 0; i < elements.Count; ++i)
             {
-                var element = ptable.FindElementBySymbol(elements[i].Value);
+                var element = PTable.FindElementBySymbol(elements[i].Value);
                 var element_count = 0;
                 int.TryParse(subscripts[i].Value, out element_count);
 
-                molecule.Elements.Add(new System.Tuple<Element, int>(element, element_count));
+                molecule.Elements.Add(Tuple.Create(element, element_count));
             }
 
             return molecule;
@@ -220,7 +216,7 @@ namespace BSmith.Chemistry
         /// </summary>
         /// <param name="equation">The equation to interpret.</param>
         /// <returns>A chemical equation.</returns>
-        public static ChemicalEquation InterpretEquation(string equation)
+        private void InterpretEquation(string equation)
         {
             var chemical_equation = new ChemicalEquation();
 
@@ -240,7 +236,7 @@ namespace BSmith.Chemistry
                         reactants.Add(new Tuple<Molecule, int>(CreateMolecule(molecule.Value), 1));
                     }
 
-                    chemical_equation.Reactants = reactants;
+                    Reactants = reactants;
                 }
                 else if (arrow_separator.Count == 1) // Reactants and produts present
                 {
@@ -261,12 +257,10 @@ namespace BSmith.Chemistry
                         }
                     }
 
-                    chemical_equation.Reactants = reactants;
-                    chemical_equation.Products = products;
+                    Reactants = reactants;
+                    Products = products;
                 }
             }
-
-            return chemical_equation;
         }
 
         /// <summary>

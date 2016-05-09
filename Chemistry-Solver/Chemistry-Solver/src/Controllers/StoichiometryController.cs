@@ -1,7 +1,7 @@
 ﻿using BSmith.Chemistry;
+using BSmith.ChemistrySolver.Utility;
 using System;
-using System.Drawing;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BSmith.ChemistrySolver.Controllers
@@ -14,7 +14,9 @@ namespace BSmith.ChemistrySolver.Controllers
         /// <summary>
         /// The model for the controller.
         /// </summary>
-        private Models.StoichiometryModel model_;
+        private Models.StoichiometryModel model_ = new Models.StoichiometryModel();
+
+        private Stoichiometry stoichiometry_ = new Stoichiometry();
 
         /// <summary>
         /// Creates a new stoichiometry controller.
@@ -22,212 +24,296 @@ namespace BSmith.ChemistrySolver.Controllers
         public StoichiometryController()
         {
             InitializeComponent();
-            model_ = new Models.StoichiometryModel();
-        }
-
-        private void SetAmountText(string amount)
-        {
-            rtbox_result.SelectionFont = new Font("Calibri", 14);
-            rtbox_result.SelectionColor = Color.MediumPurple;
-
-            var amt = 0.0;
-            double.TryParse(amount, out amt);
-
-            rtbox_result.SelectedText = System.Math.Round(amt, 4).ToString();
-        }
-
-        private void SetSubscriptText(string subscript)
-        {
-            rtbox_result.SelectionFont = new Font("Calibri", 9);
-            rtbox_result.SelectionCharOffset = -5;
-
-            var subscript_value = 0;
-            int.TryParse(subscript, out subscript_value);
-            rtbox_result.SelectedText = (subscript_value != 1) ? subscript : string.Empty;
-        }
-
-        private void SetNormalText(string text)
-        {
-            rtbox_result.SelectionFont = new Font("Calibri", 14);
-            rtbox_result.SelectionColor = Color.Black;
-            rtbox_result.SelectionCharOffset = 0;
-            rtbox_result.SelectedText = text;
-        }
-
-        private void SetMoleculeText(Tuple<Molecule, int> molecule)
-        {
-            for (var i = 0; i < molecule.Item1.Elements.Count; ++i)
-            {
-                SetNormalText(molecule.Item1.Elements[i].Item1.Symbol);
-                SetSubscriptText(molecule.Item1.Elements[i].Item2.ToString());
-            }
         }
 
         /// <summary>
-        /// Performs the stoichiometry to calculate the desired output.
+        /// Clears equation information from the window, effectively resetting it back to default values.
         /// </summary>
         /// <param name="sender">The button that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
-        public void CalculateResultButtonClick(object sender, EventArgs e)
+        public void ClearEquationInputButtonClick(object sender, EventArgs e)
         {
-            rtbox_result.SelectionAlignment = HorizontalAlignment.Center;
-            rtbox_result.Clear();
+            stoichiometry_ = new Stoichiometry();
+            model_.Equation.Reactants.Clear();
+            model_.Equation.Products.Clear();
 
-            var stoich = new Stoichiometry();
-            model_.OutputValue = stoich.CalculateOutput(model_.InputValue, model_.OutputValue);
-
-            SetAmountText(model_.InputValue.Amount.ToString());
-            SetNormalText(" ");
-            SetNormalText(model_.InputValue.Units);
-            SetNormalText(" of ");
-            SetMoleculeText(model_.InputValue.Substance);
-            SetNormalText(" = ");
-            SetAmountText(model_.OutputValue.Amount.ToString());
-            SetNormalText(" ");
-            SetNormalText(model_.OutputValue.Units);
-            SetNormalText(" of ");
-            SetMoleculeText(model_.OutputValue.Substance);
-        }
-
-        /// <summary>
-        /// Clears the form of user input.
-        /// </summary>
-        /// <param name="sender">The button that sent the event.</param>
-        /// <param name="e">The event's arguments.</param>
-        public void ClearInputButtonClick(object sender, EventArgs e)
-        {
-            //Clear Input
-            model_.Equation = new ChemicalEquation();
-            model_.OutputValue = new Value();
-            model_.InputValue = new Value();
             tbox_equation_input.Clear();
-
-            //Clear Reactants / Products
-            lbox_output.Items.Clear();
-            lbox_input.Items.Clear();
             tbox_input_amount.Clear();
-            cbox_output_unit.SelectedItem = null;
-            cbox_intput_unit.SelectedItem = null;
-
-            //Clear results
-            rtbox_result.Clear();
+            tbox_output_amount.Clear();
+            cbox_input_molecule.Items.Clear();
+            cbox_output_molecule.Items.Clear();
         }
 
         /// <summary>
-        /// Loads user input into the form so it can be used for calculations.
+        /// Enters the user-specified equation into the application.
         /// </summary>
         /// <param name="sender">The button that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
-        public void EnterInputButtonClick(object sender, EventArgs e)
+        public void EquationEnterButtonClick(object sender, EventArgs e)
         {
-            model_.Equation = ChemicalEquation.InterpretEquation(tbox_equation_input.Text);
-            model_.InputValue = new Value();
-            model_.OutputValue = new Value();
+            model_.Equation = new ChemicalEquation(tbox_equation_input.Text);
+            model_.Equation.Balance();
 
-            lbox_output.Items.Clear();
-            lbox_input.Items.Clear();
-            rtbox_result.Clear();
-            tbox_input_amount.Clear();
-            cbox_output_unit.SelectedItem = null;
-            cbox_intput_unit.SelectedItem = null;
-
-            if (model_.Equation.Reactants.Count != 0 && model_.Equation.Products.Count != 0)
+            if (model_.Equation.IsBalanced())
             {
-                if (!model_.Equation.IsBalanced())
-                {
-                    model_.Equation.Balance();
-                }
+                tbox_equation_input.Text = model_.Equation.ToString();
 
-                //populate input and output listboxes
-                foreach(var molecule in model_.Equation.Reactants)
-                {
-                    lbox_input.Items.Add($"{molecule.Item2}{molecule.Item1}");
-                    lbox_output.Items.Add($"{molecule.Item2}{molecule.Item1}");
-                }
+                var reactants = model_.Equation.Reactants.Select(reactant => $"{reactant.Item2}{reactant.Item1}").ToArray();
+                var products = model_.Equation.Products.Select(product => $"{product.Item2}{product.Item1}").ToArray();
 
-                foreach (var molecule in model_.Equation.Products)
-                {
-                    lbox_input.Items.Add($"{molecule.Item2}{molecule.Item1}");
-                    lbox_output.Items.Add($"{molecule.Item2}{molecule.Item1}");
-                }
+                cbox_input_molecule.Items.Clear();
+                cbox_output_molecule.Items.Clear();
+
+                cbox_input_molecule.Items.AddRange(reactants);
+                cbox_input_molecule.Items.AddRange(products);
+                cbox_input_molecule.SelectedIndex = 0;
+
+                cbox_output_molecule.Items.AddRange(reactants);
+                cbox_output_molecule.Items.AddRange(products);
+                cbox_output_molecule.SelectedIndex = reactants.Length;
+
+                stoichiometry_.CreateConversionTable(model_.Equation);
+
+                // Focusing causes the text change in the input amount tbox to force a conversion.
+                tbox_input_amount.Focus();
+                tbox_input_amount.Text = 1.ToString();
             }
         }
 
         /// <summary>
-        /// Updates the model's input variable with new quantity information.
+        /// Calculates a stoichiometric conversion as the user types values in to the input molecule amount textbox.
         /// </summary>
         /// <param name="sender">The textbox that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
         public void InputAmountValueChanged(object sender, EventArgs e)
         {
-            var textbox = sender as TextBox;
-            var amount = 0.0;
+            var inputValue = sender as TextBox;
 
-            double.TryParse(textbox.Text, out amount);
-            model_.InputValue.Amount = amount;
+            if (inputValue.Focused && stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count > 0)
+            {
+                var value = 0d;
+                double.TryParse(inputValue.Text, out value);
+
+                var canceledUnit = (cbox_input_unit.SelectedItem.ToString().Equals("grams")) ? "mass" : cbox_input_unit.SelectedItem.ToString();
+                var canceledMolecule = $"{cbox_input_molecule.SelectedItem} {canceledUnit}";
+                var remainingUnit = (cbox_output_unit.SelectedItem.ToString().Equals("grams")) ? "mass" : cbox_output_unit.SelectedItem.ToString();
+                var remainingMolecule = $"{cbox_output_molecule.SelectedItem} {remainingUnit}";
+
+                stoichiometry_.UnitConverter.InputValue.Value = value;
+                stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                tbox_output_amount.Text = stoichiometry_.UnitConverter.PerformConversion().Value.ToString();             
+            }
         }
 
         /// <summary>
-        /// Updates the model's input variable with new substance information.
+        /// Recalculates the stoichiometric conversion with the new input molecule selection.
         /// </summary>
-        /// <param name="sender">The list box that sent the event.</param>
+        /// <param name="sender">The combobox that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
         public void InputMoleculeSelectionChanged(object sender, EventArgs e)
         {
-            var listbox = sender as ListBox;
-            var coefficient = Regex.Matches(listbox.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
-            var amount = 0;
-            int.TryParse(coefficient[0].Groups[1].Value, out amount);
+            var cbox = sender as ComboBox;
 
-            var molecule = ChemicalEquation.CreateMolecule(lbox_input.Text);
-            model_.InputValue.Substance = Tuple.Create(molecule, amount);
+            if (stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count > 0)
+            {
+                var canceledUnit =
+               ((cbox_input_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+               "mass" : cbox_input_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var canceledMolecule =
+                   (!string.IsNullOrEmpty(canceledUnit)) ?
+                   $"{cbox_input_molecule.SelectedItem} {canceledUnit}" : string.Empty;
+
+                var remainingUnit =
+                    ((cbox_output_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+                    "mass" : cbox_output_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var remainingMolecule =
+                   (!string.IsNullOrEmpty(remainingUnit)) ?
+                   $"{cbox_output_molecule.SelectedItem} {remainingUnit}" : string.Empty;
+
+                if (!string.IsNullOrEmpty(canceledMolecule) && !string.IsNullOrEmpty(remainingMolecule))
+                {
+                    stoichiometry_.UnitConverter.InputValue.LowerUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Add(canceledMolecule);
+
+                    var inputValue = 0d;
+                    double.TryParse(tbox_input_amount.Text, out inputValue);
+                    stoichiometry_.UnitConverter.InputValue.Value = inputValue;
+
+                    stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                    tbox_output_amount.Text = stoichiometry_.UnitConverter.PerformConversion().Value.ToString();
+                }
+            }       
         }
 
         /// <summary>
-        /// Updates the model's input variable with new unit information.
+        /// Recalculates the stoichiometric conversion with the new input unit selection.
         /// </summary>
         /// <param name="sender">The combobox that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
         public void InputUnitSelectionChanged(object sender, EventArgs e)
         {
-            var combobox = sender as ComboBox;
+            var cbox = sender as ComboBox;
 
-            if (combobox.SelectedItem != null)
+            if (stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count != 0)
             {
-                model_.InputValue.Units = combobox.SelectedItem.ToString();
+                var canceledUnit =
+               ((cbox_input_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+               "mass" : cbox_input_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var canceledMolecule =
+                   (!string.IsNullOrEmpty(canceledUnit)) ?
+                   $"{cbox_input_molecule.SelectedItem} {canceledUnit}" : string.Empty;
+
+                var remainingUnit =
+                    ((cbox_output_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+                    "mass" : cbox_output_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var remainingMolecule =
+                   (!string.IsNullOrEmpty(remainingUnit)) ?
+                   $"{cbox_output_molecule.SelectedItem} {remainingUnit}" : string.Empty;
+
+                if (!string.IsNullOrEmpty(canceledMolecule) && !string.IsNullOrEmpty(remainingMolecule))
+                {
+                    stoichiometry_.UnitConverter.InputValue.LowerUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Add(canceledMolecule);
+
+                    var inputValue = 0d;
+                    double.TryParse(tbox_input_amount.Text, out inputValue);
+                    stoichiometry_.UnitConverter.InputValue.Value = inputValue;
+
+                    stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                    tbox_output_amount.Text = stoichiometry_.UnitConverter.PerformConversion().Value.ToString();
+                }
             }
         }
 
         /// <summary>
-        /// Updates the model's output variable with new substance information.
+        /// Calculates a stoichiometric conversion as the user types values in to the output molecule amount textbox.
         /// </summary>
-        /// <param name="sender">The listbox that sent the event.</param>
+        /// <param name="sender">The textbox that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void OutputAmountValueChanged(object sender, EventArgs e)
+        {
+            var inputValue = sender as TextBox;
+
+            if (inputValue.Focused && stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count > 0)
+            {
+                var value = 0d;
+                double.TryParse(inputValue.Text, out value);
+
+                var canceledUnit = (cbox_output_unit.SelectedItem.ToString().Equals("grams")) ? "mass" : cbox_output_unit.SelectedItem.ToString();
+                var canceledMolecule = $"{cbox_output_molecule.SelectedItem} {canceledUnit}";
+                var remainingUnit = (cbox_input_unit.SelectedItem.ToString().Equals("grams")) ? "mass" : cbox_input_unit.SelectedItem.ToString();
+                var remainingMolecule = $"{cbox_input_molecule.SelectedItem} {remainingUnit}";
+
+                stoichiometry_.UnitConverter.InputValue.Value = value;
+                stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                stoichiometry_.UnitConverter.InputValue = stoichiometry_.UnitConverter.PerformConversion();
+                tbox_input_amount.Text = stoichiometry_.UnitConverter.InputValue.Value.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Recalculates the stoichiometric conversion with the new output unit selection.
+        /// </summary>
+        /// <param name="sender">The combobox that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
         public void OutputMoleculeSelectionChanged(object sender, EventArgs e)
         {
-            var listbox = sender as ListBox;
-            var molecule = ChemicalEquation.CreateMolecule(listbox.Text);
-            var coefficient = Regex.Matches(listbox.Text, @"(\d{1,})[A-Z]{1}[a-z]{0,2}");
+            if (stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count != 0)
+            {
+                var canceledUnit =
+               ((cbox_input_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+               "mass" : cbox_input_unit.SelectedItem?.ToString() ?? string.Empty;
 
-            var amount = 0;
-            int.TryParse(coefficient[0].Groups[1].Value, out amount);
-           
-            model_.OutputValue.Substance = Tuple.Create(molecule, amount);
+                var canceledMolecule =
+                   (!string.IsNullOrEmpty(canceledUnit)) ?
+                   $"{cbox_input_molecule.SelectedItem} {canceledUnit}" : string.Empty;
+
+                var remainingUnit =
+                    ((cbox_output_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+                    "mass" : cbox_output_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var remainingMolecule =
+                   (!string.IsNullOrEmpty(remainingUnit)) ?
+                   $"{cbox_output_molecule.SelectedItem} {remainingUnit}" : string.Empty;
+
+                if (!string.IsNullOrEmpty(canceledMolecule) && !string.IsNullOrEmpty(remainingMolecule))
+                {
+                    stoichiometry_.UnitConverter.InputValue.LowerUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Add(canceledMolecule);
+
+                    var inputValue = 0d;
+                    double.TryParse(tbox_input_amount.Text, out inputValue);
+                    stoichiometry_.UnitConverter.InputValue.Value = inputValue;
+
+                    stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                    tbox_output_amount.Text = stoichiometry_.UnitConverter.PerformConversion().Value.ToString();
+                }
+            }
         }
 
         /// <summary>
-        /// Updates the model's output variable with new unit information.
+        /// Recalculates the stoichiometric conversion with the new output unit selection.
         /// </summary>
-        /// <param name="sender">The listbox that sent the event.</param>
+        /// <param name="sender">The combobox that sent the event.</param>
         /// <param name="e">The event's arguments.</param>
         public void OutputUnitSelectionChanged(object sender, EventArgs e)
         {
-            var combobox = sender as ComboBox;
-
-            if(combobox.SelectedItem != null)
+            if (stoichiometry_.UnitConverter.ConversionTable.Table.Data.Count != 0)
             {
-                model_.OutputValue.Units = combobox.SelectedItem.ToString();
+                var canceledUnit =
+               ((cbox_input_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+               "mass" : cbox_input_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var canceledMolecule =
+                   (!string.IsNullOrEmpty(canceledUnit)) ?
+                   $"{cbox_input_molecule.SelectedItem} {canceledUnit}" : string.Empty;
+
+                var remainingUnit =
+                    ((cbox_output_unit.SelectedItem?.ToString() ?? string.Empty).Equals("grams")) ?
+                    "mass" : cbox_output_unit.SelectedItem?.ToString() ?? string.Empty;
+
+                var remainingMolecule =
+                   (!string.IsNullOrEmpty(remainingUnit)) ?
+                   $"{cbox_output_molecule.SelectedItem} {remainingUnit}" : string.Empty;
+
+                if (!string.IsNullOrEmpty(canceledMolecule) && !string.IsNullOrEmpty(remainingMolecule))
+                {
+                    stoichiometry_.UnitConverter.InputValue.LowerUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Clear();
+                    stoichiometry_.UnitConverter.InputValue.UpperUnits.Add(canceledMolecule);
+
+                    var inputValue = 0d;
+                    double.TryParse(tbox_input_amount.Text, out inputValue);
+                    stoichiometry_.UnitConverter.InputValue.Value = inputValue;
+
+                    stoichiometry_.UnitConverter.ConversionRatio = stoichiometry_.UnitConverter.ConversionTable.GetConversionValue(canceledMolecule, remainingMolecule);
+
+                    tbox_output_amount.Text = stoichiometry_.UnitConverter.PerformConversion().Value.ToString();
+                }
             }
+        }
+
+        /// <summary>
+        /// Sets default values for both of the unit comboboxes.
+        /// </summary>
+        /// <param name="sender">The form that sent the event.</param>
+        /// <param name="e">The event's arguments.</param>
+        public void StoichiometryFormLoad(object sender, EventArgs e)
+        {
+            cbox_input_unit.SelectedIndex = 0;
+            cbox_output_unit.SelectedIndex = 0;
         }
     }
 }

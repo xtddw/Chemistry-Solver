@@ -12,21 +12,22 @@ namespace BSmith.Chemistry
         /// <summary>
         /// The list of elements in the periodic table.
         /// </summary>
-        public List<Element> ElementData { get; private set; }
+        public List<Element> ElementData { get; private set; } = new List<Element>();
 
         /// <summary>
-        /// Constructs a new PeriodicTable.
+        /// Constructs a new <see cref="PeriodicTable"/> with element data from the .csv file, <paramref name="fileName"/>.
         /// </summary>
-        public PeriodicTable() 
+        /// <param name="fileName">A .csv file containing element information.</param>
+        public PeriodicTable(string fileName) 
         {
-            ElementData = new List<Element>();
+            LoadDataFromCSV(fileName);
         }
 
         /// <summary>
         /// Loads element data from the specified .csv file.
         /// </summary>
         /// <param name="file_name">The csv file containing element data.</param>
-        public void LoadDataFromCSV(string file_name)
+        private void LoadDataFromCSV(string file_name)
         {
             using (StreamReader file = new StreamReader(file_name))
             {
@@ -59,13 +60,7 @@ namespace BSmith.Chemistry
         /// <param name="atomic_number">The atomic number of the element.</param>
         /// <returns>An Element with the specified atomic number.</returns>
         public Element FindElementByAtomicNumber(int atomic_number)
-        {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0);
-
-            result = ElementData.Find(element => element.AtomicNumber == atomic_number);
-
-            return result;
-        }
+               => ElementData.Find(element => element.AtomicNumber == atomic_number);
 
         /// <summary>
         /// Finds an element by its name.
@@ -73,13 +68,7 @@ namespace BSmith.Chemistry
         /// <param name="name">The name of the element.</param>
         /// <returns>An Element with the specified name.</returns>
         public Element FindElementByName(string name)
-        {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0);
-
-            result = ElementData.Find(element => element.Name == name);
-
-            return result;
-        }
+               => ElementData.Find(element => element.Name == name);
 
         /// <summary>
         /// Finds an element by its symbol.
@@ -87,13 +76,7 @@ namespace BSmith.Chemistry
         /// <param name="name">The symbol of the element.</param>
         /// <returns>An Element with the specified symbol.</returns>
         public Element FindElementBySymbol(string symbol)
-        {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0);
-
-            result = ElementData.Find(element => element.Symbol == symbol);
-
-            return result;
-        }
+               => ElementData.Find(element => element.Symbol == symbol);
 
         /// <summary>
         /// Finds an element by its molar mass.
@@ -101,12 +84,6 @@ namespace BSmith.Chemistry
         /// <param name="name">The molar mass of the element.</param>
         /// <returns>An Element with the specified molar mass.</returns>
         public Element FindElementByMolarMass(double molar_mass)
-        {
-            Element result = new Element(0, string.Empty, string.Empty, 0.0);
-
-            result = ElementData.Find(element => element.MolarMass == molar_mass);
-
-            return result;
-        }
+               => ElementData.Find(element => element.MolarMass == molar_mass);
     }
 }

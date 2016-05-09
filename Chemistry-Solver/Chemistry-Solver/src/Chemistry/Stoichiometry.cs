@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using BSmith.ChemistrySolver.Utility;
 
 namespace BSmith.Chemistry
 {
@@ -7,58 +10,113 @@ namespace BSmith.Chemistry
     /// </summary>
     public class Stoichiometry
     {
-        private DimensionalAnalysis dimensional_analysis_;
+        public UnitConversion UnitConverter { get; } = new UnitConversion();
 
         /// <summary>
         /// Constructs a new Stoichiometry object.
         /// </summary>
-        public Stoichiometry()
-        {
-            dimensional_analysis_ = new DimensionalAnalysis();
-        }
+        public Stoichiometry() { }
 
         /// <summary>
-        /// A helper function that finds the appropriate conversion value from the specified value.
+        /// Creates a scalar value based on the relationship between the <paramref name="molecule"/> and it's units.
         /// </summary>
-        /// <param name="value">A Value.</param>
+        /// <param name="molecule">The molecule to generate a scalar for.</param>
+        /// <returns>The scalar value that</returns>
+        private double CalculateIndividualScalar(Tuple<Tuple<Molecule, int>, string> molecule)
+        {
+            var scalar = 0d;
+
+            if (molecule.Item2.Equals("mass"))
+            {
+                scalar = molecule.Item1.Item2 * molecule.Item1.Item1.MolarMass();
+            }
+            else if (molecule.Item2.Equals("moles"))
+            {
+                scalar = molecule.Item1.Item2;
+            }
+            else if (molecule.Item2.Equals("particles"))
+            {
+                //Avogadro's Number
+                scalar = 6.022E+23;
+            }
+
+            return scalar;
+        }
+        /// <summary>
+        /// Creates a scalar representing the relationship between <paramref name="canceledMolecule"/> and remaining, in the specified units.
+        /// </summary>
+        /// <param name="canceledMolecule">The molecule and units that will be canceled after conversion.</param>
+        /// <param name="remainingMolecule">The molecule and units that will remain after conversion.</param>
         /// <returns>A decimal representing the appropriate conversion value.</returns>
-        private double ConversionValue(Value value)
+        private double CreateConversionScalar(Tuple<Tuple<Molecule, int>, string> canceledMolecule, Tuple<Tuple<Molecule, int>, string> remainingMolecule)
         {
-            var result = 0.0;
+            var scalar = 0.0;
 
-            if (value.Units.Equals("grams"))
+            if(canceledMolecule != null && remainingMolecule != null)
             {
-                result = value.Substance.Item2 * value.Substance.Item1.MolarMass();
-            }
-            else if (value.Units.Equals("moles"))
-            {
-                result = value.Substance.Item2;
-            }
-            else if (value.Units.Equals("particles"))
-            {
-                result = 6.022E+23; //Avogadro's Number
+                scalar = CalculateIndividualScalar(remainingMolecule) / CalculateIndividualScalar(canceledMolecule);
             }
 
-            return result;
+            return scalar;
         }
 
-        /// <summary>
-        /// Converts the input Value into the desired output Value.
-        /// </summary>
-        /// <param name="input">An input Value.</param>
-        /// <param name="output">An output Value.</param>
-        /// <returns>The calculated output Value.</returns>
-        public Value CalculateOutput(Value input, Value output)
+        private List<Tuple<Tuple<Molecule, int>, string>> CreateConversionInfo(ChemicalEquation equation)
         {
-            dimensional_analysis_.Ratios.Clear();
-            dimensional_analysis_.GenerateRatio(input, new Value(1.0, string.Empty, Tuple.Create(new Molecule(), 0)));
+            List<Tuple<Tuple<Molecule, int>, string>> header = null;
 
-            Value output_numerator = new Value(ConversionValue(output), output.Units, output.Substance);        
-            Value output_denominator = new Value(ConversionValue(input), input.Units, input.Substance);
+            if (equation.IsBalanced())
+            {
+                header = new List<Tuple<Tuple<Molecule, int>, string>>();
 
-            dimensional_analysis_.GenerateRatio(output_numerator, output_denominator);
+                var combined = equation.Reactants.Concat(equation.Products);
 
-            return dimensional_analysis_.CalculateResult();
+                foreach (var molecule in combined)
+                {
+                    header.Add(Tuple.Create(molecule, "mass"));
+                    header.Add(Tuple.Create(molecule, "moles"));
+                    header.Add(Tuple.Create(molecule, "particles"));
+                }
+            }
+
+            return header;
+        }
+
+        public void CreateConversionTable(ChemicalEquation equation)
+        {
+            var tableData = new List<List<string>>();
+
+            if (equation.IsBalanced())
+            {
+                var conversionInfo = CreateConversionInfo(equation);
+                var columnHeader = conversionInfo.Select(molecule => $"{molecule.Item1.Item2}{molecule.Item1.Item1.ToString()} {molecule.Item2}").ToList();
+                tableData.Add(columnHeader);
+
+                // Adds the conversion type of the table.
+                tableData[0].Insert(0, equation.ToString());
+
+                for (var rowIndex = 1; rowIndex < columnHeader.Count; ++rowIndex)
+                {
+                    var rowHeader = columnHeader[rowIndex];
+
+                    if (tableData.Count == rowIndex)
+                    {
+                        tableData.Add(new List<string>());
+                        tableData[rowIndex].Add(rowHeader);
+                        tableData[rowIndex].AddRange(new string[rowIndex - 1]);
+                    }                 
+
+                    for (var colIndex = rowIndex; colIndex < columnHeader.Count; ++colIndex)
+                    {
+                        var canceledUnit = conversionInfo[rowIndex - 1];
+                        var remainingUnit = conversionInfo[colIndex - 1];
+                        var conversionScalar = CreateConversionScalar(canceledUnit, remainingUnit);
+
+                        tableData[rowIndex].Add(conversionScalar.ToString());                       
+                    }
+                }
+
+                UnitConverter.ConversionTable = UnitConverter.CreateConversionTable(tableData).Transpose();
+            }
         }
     }
 }

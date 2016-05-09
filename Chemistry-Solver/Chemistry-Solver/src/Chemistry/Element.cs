@@ -45,9 +45,7 @@
         /// </summary>
         /// <returns>A string representation of the Element.</returns>
         public override string ToString()
-        {
-            return $"Name: {Name}\nAtomic Number: {AtomicNumber} | \nSymbol: {Symbol}\n Molar Mass: {MolarMass}";
-        }
+            => $"Name: {Name}\nAtomic Number: {AtomicNumber} | \nSymbol: {Symbol}\n Molar Mass: {MolarMass}";
 
         /// <summary>
         /// Compares the equality between two elements.

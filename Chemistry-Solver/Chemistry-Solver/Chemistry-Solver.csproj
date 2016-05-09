@@ -49,13 +49,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Chemistry\ChemicalEquation.cs" />
-    <Compile Include="src\Chemistry\DimensionalAnalysis.cs" />
     <Compile Include="src\Chemistry\Element.cs" />
     <Compile Include="src\Chemistry\Molecule.cs" />
     <Compile Include="src\Chemistry\PeriodicTable.cs" />
-    <Compile Include="src\Chemistry\Ratio.cs" />
     <Compile Include="src\Chemistry\Stoichiometry.cs" />
-    <Compile Include="src\Chemistry\Value.cs" />
     <Compile Include="src\Controllers\EquationBalancerController.cs">
       <SubType>Form</SubType>
     </Compile>

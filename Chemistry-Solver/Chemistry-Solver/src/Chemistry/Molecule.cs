@@ -9,17 +9,14 @@ namespace BSmith.Chemistry
     public class Molecule
     {
         /// <summary>
-        /// A collection of <see cref="Tuple{T1, T2}"/>that represent the elements and their quantities found in the molecule.
+        /// A collection of <see cref="Tuple{T1, T2}"/> that represent the elements and their quantities found in the molecule.
         /// </summary>
-        public List<Tuple<Element, int>> Elements { get; private set; }
+        public List<Tuple<Element, int>> Elements { get; private set; } = new List<Tuple<Element, int>>();
 
         /// <summary>
         /// Constructs an empty Molecule.
         /// </summary>
-        public Molecule()
-        {
-            Elements = new List<Tuple<Element, int>>();
-        }
+        public Molecule() { }
 
         /// <summary>
         /// Calculates the molecule's molar mass.

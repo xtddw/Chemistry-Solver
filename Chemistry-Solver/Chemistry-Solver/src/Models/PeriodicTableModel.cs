@@ -10,16 +10,12 @@ namespace BSmith.ChemistrySolver.Models
         /// <summary>
         /// The periodic table.
         /// </summary>
-        public PeriodicTable Table { get; private set; }
+        public PeriodicTable Table { get; } = new PeriodicTable("..\\..\\data\\ElementData.csv");
 
         /// <summary>
         /// Creates a new periodic table model.
         /// </summary>
-        public PeriodicTableModel()
-        {
-            Table = new PeriodicTable();
-            Table.LoadDataFromCSV("..\\..\\data\\ElementData.csv");
-        }
+        public PeriodicTableModel() { }
     }
 }
 

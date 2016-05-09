@@ -34,7 +34,7 @@ namespace BSmith.ChemistrySolver.Controllers
         public void BalanceButtonClick(object sender, EventArgs e)
         {
             rtxt_equation_display.Clear();
-            model_.Equation = ChemicalEquation.InterpretEquation(SimplifyEquationFormat(txt_equation_input.Text));
+            model_.Equation = new ChemicalEquation(SimplifyEquationFormat(txt_equation_input.Text));
 
             if (model_.Equation.Reactants.Count > 0 && model_.Equation.Products.Count > 0)
             {
@@ -127,7 +127,7 @@ namespace BSmith.ChemistrySolver.Controllers
                         subscript_sum += subscriptValue;
                     }
 
-                    condensedFormat += (!Regex.IsMatch(condensedFormat, elements[j].Value)) ? elements[j].Value + "_(" + subscript_sum + ")" : string.Empty;
+                    condensedFormat += (!Regex.IsMatch(condensedFormat, elements[j].Value)) ? $"{elements[j].Value}_({subscript_sum})" : string.Empty;
 
                 }
 
@@ -142,7 +142,7 @@ namespace BSmith.ChemistrySolver.Controllers
         /// <returns>A simplfied equation as a string.</returns>
         public string SimplifyEquationFormat(string equation)
         {
-            var chemical_equation = ChemicalEquation.InterpretEquation(equation);
+            var chemical_equation = new ChemicalEquation(equation);
 
             CondenseMolecules(chemical_equation.Reactants);
             CondenseMolecules(chemical_equation.Products);
